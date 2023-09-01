@@ -21,24 +21,53 @@ struct ContentView: View {
   
   var body: some View {
     
+    //need to work out how to get expected behaviour of only updating color when button clicked
+    
+    var compColor: Color {
+      let tempRed = Double(red / 255)
+      let tempGreen = Double(green / 255)
+      let tempBlue = Double(blue / 255)
+      
+      let color = Color(red: tempRed, green: tempGreen, blue: tempBlue)
+      
+      return color
+    }
+    
     VStack {
       Spacer()
       Text("Color Picker").fontWeight(.heavy)
       Spacer()
       RoundedRectangle(cornerRadius: 0.5)
         .frame(width: 350, height: 350)
+        .foregroundColor(compColor)
       
       Spacer()
+      
       VStack{
         Text("Red")
-        Slider(value: $red, in: 0...255, step: 1)
-        Text("Green")
-        Slider(value: $green, in: 0...255, step: 1)
-        Text("Blue")
-        Slider(value: $blue, in: 0...255, step: 1)
+        HStack{
+          Slider(value: $red, in: 0...255, step: 1)
+          Text("\(red)")
         }
+        Text("Green")
+        HStack{
+          Slider(value: $green, in: 0...255, step: 1)
+          Text("\(green)")
+        }
+        Text("Blue")
+        HStack{
+          Slider(value: $blue, in: 0...255, step: 1)
+          Text("\(blue)")
+        }
+      }
       Spacer()
-      
+      Button("Set Color") {
+//        let tempRed = Double(red / 255)
+//        let tempGreen = Double(green / 255)
+//        let tempBlue = Double(blue / 255)
+//
+//        let color = Color(red: tempRed, green: tempGreen, blue: tempBlue)
+      }
       
     }
   }
