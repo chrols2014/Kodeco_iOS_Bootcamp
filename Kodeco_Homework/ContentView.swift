@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Kodeco_Homework
+//  Kodeco_Homework Assignemnt 01
 //
 //  Created by Chris Olsen on 2023-08-31.
 //
@@ -9,72 +9,63 @@ import SwiftUI
 
 struct ContentView: View {
   
-  @State private var red : Float = 125
-  @State private var green : Float = 125
-  @State private var blue : Float = 125
-  //  @State var computedColor: Color {
-  //
-  //    var tempColor = Color(red: 0.4627, green: 0.8392, blue: 1.0)
-  //
-  //    return tempColor
-  //  }
+  @State private var model: ViewModel = ViewModel()
   
   var body: some View {
-    
-    //need to work out how to get expected behaviour of only updating color when button clicked
-    
-    var compColor: Color {
-      let tempRed = Double(red / 255)
-      let tempGreen = Double(green / 255)
-      let tempBlue = Double(blue / 255)
-      
-      let color = Color(red: tempRed, green: tempGreen, blue: tempBlue)
-      
-      return color
-    }
-    
     VStack {
-      Spacer()
-      Text("Color Picker").fontWeight(.heavy)
-      Spacer()
-      RoundedRectangle(cornerRadius: 0.5)
-        .frame(width: 350, height: 350)
-        .foregroundColor(compColor)
+      Text("Color Picker")
+        .font(.largeTitle)
+      
+      RoundedRectangle(cornerRadius: 5)
+        .aspectRatio(1.11, contentMode: .fit)
+        .foregroundColor(model.currentColor)
       
       Spacer()
       
       VStack{
         Text("Red")
         HStack{
-          Slider(value: $red, in: 0...255, step: 1)
-          Text("\(red)")
+          Slider(value: $model.redSliderValue, in: 0...255, step: 1)
+          Text("\(model.redSliderValue.formatted())")
         }
         Text("Green")
         HStack{
-          Slider(value: $green, in: 0...255, step: 1)
-          Text("\(green)")
+          Slider(value: $model.greenSliderValue, in: 0...255, step: 1)
+          Text("\(model.greenSliderValue.formatted())")
         }
         Text("Blue")
         HStack{
-          Slider(value: $blue, in: 0...255, step: 1)
-          Text("\(blue)")
+          Slider(value: $model.blueSliderValue, in: 0...255, step: 1)
+          Text("\(model.blueSliderValue.formatted())")
         }
       }
       Spacer()
       Button("Set Color") {
-//        let tempRed = Double(red / 255)
-//        let tempGreen = Double(green / 255)
-//        let tempBlue = Double(blue / 255)
-//
-//        let color = Color(red: tempRed, green: tempGreen, blue: tempBlue)
+        model.updateRectangleColor()
       }
-      
     }
+    .padding()
+  }
+}
+
+struct ViewModel {
+  var redSliderValue: Double = 99
+  var greenSliderValue: Double = 40
+  var blueSliderValue: Double = 75
+  var currentColor: Color?
+  
+  init() {
+    updateRectangleColor()
   }
   
-  //make set color function
-  
-  
+  mutating func updateRectangleColor() {
+    let tempRedValue = redSliderValue / 255
+    let tempGreenValue = greenSliderValue / 255
+    let tempBlueValue = blueSliderValue / 255
+    
+    let tempColor = Color(red: tempRedValue, green: tempGreenValue, blue: tempBlueValue)
+    currentColor = tempColor
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
