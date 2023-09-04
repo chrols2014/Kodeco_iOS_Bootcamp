@@ -39,7 +39,9 @@ struct ContentView: View {
           Text("\(model.blueSliderValue.formatted())")
         }
       }
+      
       Spacer()
+      
       Button("Set Color") {
         model.updateRectangleColor()
       }
