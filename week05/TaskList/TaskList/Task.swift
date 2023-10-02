@@ -43,6 +43,16 @@ struct MockData {
    Task(title: "Test2", isCompleted: true, notes: "nope"),
    Task(title: "Test3", isCompleted: true, notes: "nope"),
    Task(title: "Test4", isCompleted: true, notes: "nope"),
-   Task(title: "Test5", isCompleted: true, notes: "nope")]
+   Task(title: "Test5", isCompleted: true, notes: "nope"),
+   Task(title: "Test1", isCompleted: true, notes: "nope"),
+    Task(title: "Test2", isCompleted: true, notes: "nope"),
+    Task(title: "Test3", isCompleted: true, notes: "nope"),
+    Task(title: "Test4", isCompleted: true, notes: "nope"),
+    Task(title: "Test5", isCompleted: true, notes: "nope"),
+   Task(title: "Test1", isCompleted: true, notes: "nope"),
+    Task(title: "Test2", isCompleted: true, notes: "nope"),
+    Task(title: "Test3", isCompleted: true, notes: "nope"),
+    Task(title: "Test4", isCompleted: true, notes: "nope"),
+    Task(title: "Test5", isCompleted: true, notes: "nope")]
   
 }

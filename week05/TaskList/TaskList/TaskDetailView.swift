@@ -8,28 +8,28 @@
 import SwiftUI
 
 struct TaskDetailView: View {
-  @ObservedObject var taskStore: TaskStore
- // @Binding var taskCoompleted: Bool
+  @Binding var task: Task
   
-  //let task: Task
-  
-    var body: some View {
-      Form {
-        Section("Task Title") {
-          //TextField("Title",text: task.title)
-        }
-        Section("Notes") {
-          //TextField("Notes",text: $taskStore.allTasks[0].title)
-        }
-//        Section("Completed") {
-//          Toggle(isOn: $taskCoompleted, label: {
-//            Text("Completed")
-//          })
-//        }
+  var body: some View {
+    Form {
+      Section("Task Title") {
+        TextField("Title",text: $task.title)
+      }
+      Section("Notes") {
+        TextField("Notes",text: $task.notes, axis: .vertical)
+          .lineLimit(5...)
+      }
+      Section("Completed") {
+        Toggle(isOn: $task.isCompleted, label: {
+          Text("Completed")
+        })
       }
     }
+  }
 }
 
+
 #Preview {
-  TaskDetailView(taskStore: TaskStore())
+  TaskDetailView(task: .constant(Task(title: "test", isCompleted: false, notes: "none")))
 }
+

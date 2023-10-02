@@ -12,38 +12,37 @@ struct ContentView: View {
   @State private var showingAddTaskSheet = false
   
   var body: some View {
-
+    
     NavigationStack {
-      ForEach(taskStore.allTasks, id: \.id) { task in
-        NavigationLink(value: task) {
-          TaskRowView(task: task)
+      ScrollView {
+        ForEach($taskStore.allTasks) { $task in
+          NavigationLink(destination: TaskDetailView(task: $task)) {
+            TaskRowView(task: task)
+          }
         }
-      }
-      Spacer()
-      
-      Button(action: {
-        showingAddTaskSheet.toggle()
-      }, label: {
-        HStack {
-          Image(systemName: "plus.circle.fill")
-          Text("Add Task")
-        }
-      })
-      
-      
-      .navigationBarTitle("Task List")
-      .navigationDestination(for: Task.self) { task in
-        TaskDetailView(taskStore: taskStore)
+        Spacer()
+        
+          .navigationBarTitle("My Tasks")
+          .sheet(isPresented: $showingAddTaskSheet) {
+            AddTaskView(taskStore: taskStore)
+          }
       }
       
-      
-      .sheet(isPresented: $showingAddTaskSheet) {
-        AddTaskView(taskStore: taskStore)
+      HStack(spacing: 0) {
+        Button(action: {
+          showingAddTaskSheet.toggle()
+        }, label: {
+          HStack {
+            Image(systemName: "plus.circle.fill")
+            Text("Add Task")
+          }
+        })
+        .padding(.top)
+        .padding(.leading)
+        
+        Spacer()
       }
     }
-      
-
-    
   }
 }
 
