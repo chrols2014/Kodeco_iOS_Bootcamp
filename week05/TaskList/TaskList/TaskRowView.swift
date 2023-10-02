@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct TaskRowView: View {
+  let task: Task
+  
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      HStack {
+        Text(task.title)
+        Spacer()
+        Image(systemName: task.isCompleted ? "checkmark.square" : "square")
+          .foregroundColor(task.isCompleted ? .green : .red)
+      }
+      .padding()
+      .font(.title2)
     }
 }
 
 #Preview {
-    TaskRowView()
+  TaskRowView(task: Task(title: "Test", isCompleted: false, notes: "Some notes go here"))
 }
