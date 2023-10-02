@@ -19,11 +19,11 @@ struct TaskDetailView: View {
         TextField("Notes",text: $task.notes, axis: .vertical)
           .lineLimit(5...)
       }
-      Section("Completed") {
+     
         Toggle(isOn: $task.isCompleted, label: {
           Text("Completed")
         })
-      }
+      
     }
   }
 }
