@@ -6,6 +6,7 @@ import SwiftUI
 
 struct ContentView: View {
   @StateObject var taskStore = TaskStore()
+
   
   var body: some View {
     
@@ -20,6 +21,7 @@ struct ContentView: View {
           Spacer()
           //NewTaskButton(addingTask: $addingTask)
         }
+        //.searchable(text: $searchTerm)
         .navigationTitle("My Tasks")
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
@@ -41,12 +43,8 @@ struct ContentView: View {
           Spacer()
           //NewTaskButton(addingTask: $addingTask)
         }
-        .navigationTitle("My Tasks")
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing) {
-            NewTaskButtonView(taskStore: taskStore)
-          }
-        }
+        .navigationTitle("Completed Tasks")
+       
       }
       .tabItem {
         Label("Completed", systemImage: "checkmark.circle")

@@ -6,12 +6,36 @@ import SwiftUI
 
 struct TaskListView: View {
   @ObservedObject var taskStore: TaskStore
+  @State private var searchTerm = ""
   var isShowingCompleted: Bool
   
+  
+  var filteredTasks: [Task] {
+    
+    switch isShowingCompleted {
+    case true :
+      guard !searchTerm.isEmpty else { return taskStore.tasks.filter { $0.isCompleted } }
+      return taskStore.tasks.filter { $0.isCompleted && $0.title.lowercased().contains(searchTerm.lowercased()) }
+   
+    case false:
+      guard !searchTerm.isEmpty else { return taskStore.tasks.filter { !$0.isCompleted } }
+      return taskStore.tasks.filter { !$0.isCompleted && $0.title.lowercased().contains(searchTerm.lowercased()) }
+    }
+    
+//    guard !searchTerm.isEmpty else { return isShowingCompleted ?  taskStore.tasks.filter { $0.isCompleted } : taskStore.tasks.filter { !$0.isCompleted } }
+//         return taskStore.tasks.filter { task in
+//           task.title.lowercased().contains(searchTerm.lowercased())
+//         }
+     }
   var body: some View {
     
+  
+    
+    
       
-    List(isShowingCompleted ? (taskStore.tasks.filter { !$0.isCompleted }) : (taskStore.tasks.filter { $0.isCompleted })) { task in
+//    List(isShowingCompleted ? (taskStore.tasks.filter { !$0.isCompleted && $0.title.lowercased().contains(searchTerm.lowercased()) }) : (taskStore.tasks.filter { $0.isCompleted && $0.title.lowercased().contains(searchTerm.lowercased())})) { task in
+      
+      List(filteredTasks) { task in
           
          // if task.isCompleted == false {
             NavigationLink(value: task) {
@@ -22,6 +46,7 @@ struct TaskListView: View {
             }
           //}
         }
+    .searchable(text: $searchTerm)
         .listStyle(.plain)
         .navigationDestination(for: Task.self) { task in
           TaskDetailView(task: $taskStore.tasks
