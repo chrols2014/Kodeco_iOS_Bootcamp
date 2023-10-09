@@ -5,13 +5,50 @@
 import SwiftUI
 
 struct TaskRowView: View {
-  let task: Task
+ //@ObservedObject var taskStore: TaskStore
+  
+  @Binding var task: Task
+  //@State var completeState
+
   var body: some View {
     HStack {
       Text(task.title)
       Spacer()
-      Image(systemName: task.isCompleted ? "checkmark.square" : "square")
-        .foregroundColor(task.isCompleted ? Color.green : Color.red)
+      
+    
+      
+      Button {
+  
+        task.isCompleted.toggle()
+       
+      } label: {
+        Image(systemName: task.isCompleted ? "checkmark.square" : "square")
+        
+         
+        
+        
+          //.contentTransition(.symbolEffect(.replace))
+
+          .foregroundColor(task.isCompleted ? Color.green : Color.red)
+          
+      }
+      
+      .buttonStyle(BorderlessButtonStyle())
+    
+      
+      //
+//      Button(action: { task.isCompleted.toggle() } ,
+//             label: {
+//        Image(systemName: task.isCompleted ? "checkmark.square" : "square")
+//          .foregroundColor(task.isCompleted ? Color.green : Color.red)
+//          .contentTransition(.symbolEffect(.replace))
+//          //.transition(.scale.animation(.easeInOut))
+//          //.animation(.easeIn, value: task.isCompleted)
+//      })
+//      .buttonStyle(BorderlessButtonStyle())
+
+      
+      //
     }
     .font(.title3)
     .bold()
@@ -21,7 +58,8 @@ struct TaskRowView: View {
 }
 
 struct TaskRow_Previews: PreviewProvider {
+  @State static var task = Task(title: "This Task", category: .noCategory, isCompleted: true)
   static var previews: some View {
-    TaskRowView(task: Task(title: "My Task", category: .noCategory, isCompleted: false))
+    TaskRowView(task: $task)
   }
 }
