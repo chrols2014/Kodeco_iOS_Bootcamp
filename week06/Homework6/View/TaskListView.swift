@@ -7,23 +7,26 @@ import SwiftUI
 struct TaskListView: View {
   @ObservedObject var taskStore: TaskStore
   var body: some View {
-    VStack {
-      ScrollView {
-        ForEach(taskStore.tasks, id: \.self) { task in
-          NavigationLink(value: task) {
-            VStack {
+    
+      
+    List(taskStore.tasks.filter { !$0.isCompleted }) { task in
+          
+         // if task.isCompleted == false {
+            NavigationLink(value: task) {
+              
               TaskRowView(task: task)
-              Divider()
+              
+              //.padding([.leading, .trailing], 20)
             }
-            .padding([.leading, .trailing], 20)
-          }
+          //}
         }
+        .listStyle(.plain)
         .navigationDestination(for: Task.self) { task in
           TaskDetailView(task: $taskStore.tasks
             .first(where: { $0.id == task.id })!)
         }
-      }
-    }
+      
+    
   }
 }
 
