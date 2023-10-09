@@ -8,25 +8,53 @@ struct ContentView: View {
   @StateObject var taskStore = TaskStore()
   
   var body: some View {
-    NavigationStack {
-      VStack {
-        if taskStore.tasks.isEmpty {
-          Text("No tasks found")
-        } else {
-          TaskListView(taskStore: taskStore)
+    
+    TabView {
+      NavigationStack {
+        VStack {
+          if taskStore.tasks.isEmpty {
+            Text("No tasks found")
+          } else {
+            TaskListView(taskStore: taskStore, isShowingCompleted: false)
+          }
+          Spacer()
+          //NewTaskButton(addingTask: $addingTask)
         }
-        Spacer()
-        //NewTaskButton(addingTask: $addingTask)
-      }
-      .navigationTitle("My Tasks")
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          NewTaskButtonView(taskStore: taskStore)
+        .navigationTitle("My Tasks")
+        .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+            NewTaskButtonView(taskStore: taskStore)
+          }
         }
       }
+      .tabItem {
+        Label("Tasks", systemImage: "list.bullet.circle")
+      }
+      
+      NavigationStack {
+        VStack {
+          if taskStore.tasks.isEmpty {
+            Text("No tasks found")
+          } else {
+            TaskListView(taskStore: taskStore, isShowingCompleted: true)
+          }
+          Spacer()
+          //NewTaskButton(addingTask: $addingTask)
+        }
+        .navigationTitle("My Tasks")
+        .toolbar {
+          ToolbarItem(placement: .navigationBarTrailing) {
+            NewTaskButtonView(taskStore: taskStore)
+          }
+        }
+      }
+      .tabItem {
+        Label("Completed", systemImage: "checkmark.circle")
+      }
+      
+      
     }
   }
-  
 }
 
 struct ContentView_Previews: PreviewProvider {

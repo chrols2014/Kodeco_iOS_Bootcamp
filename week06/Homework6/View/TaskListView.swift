@@ -6,10 +6,12 @@ import SwiftUI
 
 struct TaskListView: View {
   @ObservedObject var taskStore: TaskStore
+  var isShowingCompleted: Bool
+  
   var body: some View {
     
       
-    List(taskStore.tasks.filter { !$0.isCompleted }) { task in
+    List(isShowingCompleted ? (taskStore.tasks.filter { !$0.isCompleted }) : (taskStore.tasks.filter { $0.isCompleted })) { task in
           
          // if task.isCompleted == false {
             NavigationLink(value: task) {
@@ -32,6 +34,6 @@ struct TaskListView: View {
 
 struct TaskListView_Previews: PreviewProvider {
   static var previews: some View {
-    TaskListView(taskStore: TaskStore())
+    TaskListView(taskStore: TaskStore(), isShowingCompleted: false)
   }
 }
