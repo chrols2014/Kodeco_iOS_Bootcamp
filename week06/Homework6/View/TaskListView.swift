@@ -9,8 +9,6 @@ struct TaskListView: View {
   @State private var searchTerm = ""
   var isShowingCompleted: Bool
 
-  
-  
   var filteredTasks: [Task] {
     
     switch isShowingCompleted {
@@ -26,24 +24,19 @@ struct TaskListView: View {
   }
   var body: some View {
     
-  
+    // To see functioanality of animation, change "filteredTasks" to "taskStore.tasks"
     List(filteredTasks) { task in
       NavigationLink(value: task) {
         TaskRowView(task: $taskStore.tasks
           .first(where: { $0.id == task.id })!)
       }
     }
-    
-  
-    
     .searchable(text: $searchTerm)
     .listStyle(.plain)
     .navigationDestination(for: Task.self) { task in
       TaskDetailView(task: $taskStore.tasks
         .first(where: { $0.id == task.id })!)
     }
-    
-    
   }
 }
 

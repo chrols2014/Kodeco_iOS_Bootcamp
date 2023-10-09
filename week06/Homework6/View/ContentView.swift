@@ -6,7 +6,6 @@ import SwiftUI
 
 struct ContentView: View {
   @StateObject var taskStore = TaskStore()
-
   
   var body: some View {
     
@@ -19,9 +18,7 @@ struct ContentView: View {
             TaskListView(taskStore: taskStore, isShowingCompleted: false)
           }
           Spacer()
-          //NewTaskButton(addingTask: $addingTask)
         }
-        //.searchable(text: $searchTerm)
         .navigationTitle("My Tasks")
         .toolbar {
           ToolbarItem(placement: .navigationBarTrailing) {
@@ -41,16 +38,12 @@ struct ContentView: View {
             TaskListView(taskStore: taskStore, isShowingCompleted: true)
           }
           Spacer()
-          //NewTaskButton(addingTask: $addingTask)
         }
         .navigationTitle("Completed Tasks")
-       
       }
       .tabItem {
         Label("Completed", systemImage: "checkmark.circle")
       }
-      
-      
     }
   }
 }

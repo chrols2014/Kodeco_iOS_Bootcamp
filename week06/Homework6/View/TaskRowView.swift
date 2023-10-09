@@ -1,54 +1,28 @@
 //
 //  TaskRow.swift
-//  
+//
 
 import SwiftUI
 
 struct TaskRowView: View {
- //@ObservedObject var taskStore: TaskStore
-  
+  @State private var animate = false
   @Binding var task: Task
-  //@State var completeState
-
+  
   var body: some View {
     HStack {
       Text(task.title)
       Spacer()
-      
-    
-      
       Button {
-  
+        animate.toggle()
         task.isCompleted.toggle()
-       
       } label: {
         Image(systemName: task.isCompleted ? "checkmark.square" : "square")
-        
-         
-        
-        
-          //.contentTransition(.symbolEffect(.replace))
-
+          .symbolEffect(.bounce, value: animate)
+          .contentTransition(.symbolEffect(.replace))
           .foregroundColor(task.isCompleted ? Color.green : Color.red)
-          
       }
       
       .buttonStyle(BorderlessButtonStyle())
-    
-      
-      //
-//      Button(action: { task.isCompleted.toggle() } ,
-//             label: {
-//        Image(systemName: task.isCompleted ? "checkmark.square" : "square")
-//          .foregroundColor(task.isCompleted ? Color.green : Color.red)
-//          .contentTransition(.symbolEffect(.replace))
-//          //.transition(.scale.animation(.easeInOut))
-//          //.animation(.easeIn, value: task.isCompleted)
-//      })
-//      .buttonStyle(BorderlessButtonStyle())
-
-      
-      //
     }
     .font(.title3)
     .bold()
