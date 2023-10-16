@@ -18,11 +18,14 @@ class APIStore: ObservableObject {
     }
   }
   
-  @Published var showingError: Bool = false
+  @Published var showingAPIError: Bool = false
   
   init() {
     loadAPIJSON()
-    saveAPIJSON()
+    
+    if !loadedAPIData.entries.isEmpty {
+      saveAPIJSON()
+    }
   }
   
 
@@ -34,20 +37,20 @@ class APIStore: ObservableObject {
     // print(apiJSONBundleDirURL)
     
     if FileManager.default.fileExists(atPath: apiJSONBundleDirURL.path) {
-      print("file found in bundle")
+      print("API file found in bundle")
       
       workingDirectory = apiJSONBundleDirURL
       decodeJSON(url: workingDirectory)
       
     } else if FileManager.default.fileExists(atPath: apiJSONDocumentsDirURL.path) {
-      print("file not in bundle but found in documents directory")
+      print("API file not in bundle but found in documents directory")
       
       workingDirectory = apiJSONDocumentsDirURL
       decodeJSON(url: workingDirectory)
       
     } else {
-      print("file not found either directory")
-      showingError = true
+      print("API file not found in either directory")
+      showingAPIError = true
     }
   }
   
@@ -75,7 +78,7 @@ class APIStore: ObservableObject {
       loadedAPIData = try decoder.decode(APIJSONData.self, from: apiData)
     } catch let error {
       print(error)
-      showingError = true
+      showingAPIError = true
     }
     
   }

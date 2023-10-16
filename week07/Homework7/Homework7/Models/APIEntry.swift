@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 struct APIEntry: Identifiable, Hashable, Codable {
   let id = UUID()
   var api: String

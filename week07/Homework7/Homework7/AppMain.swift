@@ -36,7 +36,7 @@ import SwiftUI
 struct AppMain: App {
   var body: some Scene {
     WindowGroup {
-      ContentView(apiStore: APIStore())
+      ContentView(apiStore: APIStore(), userStore: UserStore())
     }
   }
 }
