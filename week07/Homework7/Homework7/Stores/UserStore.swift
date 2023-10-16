@@ -3,20 +3,12 @@ import Foundation
 
 class UserStore: ObservableObject {
   let userJSONDocumentsDirURL = URL(fileURLWithPath: "userinfo",
-                                   relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+                                    relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
   
   let userJSONBundleDirURL = URL(fileURLWithPath: "userinfo",
-                                relativeTo: FileManager.bundleURL).appendingPathExtension("json")
+                                 relativeTo: FileManager.bundleURL).appendingPathExtension("json")
   
-  //let apiJSONBundleDirURL = Bundle.main.url(forResource: "apilist", withExtension: "json")
-  
-  
-  
-  @Published var loadedUserData: UserJSONData = UserJSONData(results: [], info: Info(seed: "", results: 0, page: 0, version: "")) {
-    didSet {
-      //saveAPIJSON()
-    }
-  }
+  @Published var loadedUserData: UserJSONData = UserJSONData(results: [], info: Info(seed: "", results: 0, page: 0, version: ""))
   
   @Published var showingUserError: Bool = false
   
@@ -28,13 +20,10 @@ class UserStore: ObservableObject {
     }
   }
   
-
+  
   private func loadUserJSON() {
-   
-    var workingDirectory: URL
     
-     //print(userJSONDocumentsDirURL)
-    // print(apiJSONBundleDirURL)
+    var workingDirectory: URL
     
     if FileManager.default.fileExists(atPath: userJSONBundleDirURL.path) {
       print("user file found in bundle")
@@ -55,13 +44,13 @@ class UserStore: ObservableObject {
   }
   
   
- private func saveUserJSON() {
+  private func saveUserJSON() {
     let encoder = JSONEncoder()
     
     do {
       let userData = try encoder.encode(loadedUserData)
       let userJSONURL = URL(fileURLWithPath: "userinfo",
-                           relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+                            relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
       
       try userData.write(to: userJSONURL, options: .atomicWrite)
     } catch let error {
@@ -71,7 +60,7 @@ class UserStore: ObservableObject {
   }
   
   
- private func decodeJSON(url: URL) {
+  private func decodeJSON(url: URL) {
     let decoder = JSONDecoder()
     do {
       let userData = try Data(contentsOf: url)

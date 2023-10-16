@@ -30,9 +30,3 @@ struct UserDetailView: View {
     }
   }
 }
-
-
-//
-//#Preview {
-//  UserDetailView(user: .constant(User))
-//}

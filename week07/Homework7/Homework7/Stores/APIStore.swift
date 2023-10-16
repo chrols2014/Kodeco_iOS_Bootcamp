@@ -8,16 +8,7 @@ class APIStore: ObservableObject {
   let apiJSONBundleDirURL = URL(fileURLWithPath: "apilist",
                                 relativeTo: FileManager.bundleURL).appendingPathExtension("json")
   
-  //let apiJSONBundleDirURL = Bundle.main.url(forResource: "apilist", withExtension: "json")
-  
-  
-  
-  @Published var loadedAPIData: APIJSONData = APIJSONData(count: 0, entries: [])  {
-    didSet {
-      //saveAPIJSON()
-    }
-  }
-  
+  @Published var loadedAPIData: APIJSONData = APIJSONData(count: 0, entries: [])
   @Published var showingAPIError: Bool = false
   
   init() {
@@ -28,13 +19,10 @@ class APIStore: ObservableObject {
     }
   }
   
-
+  
   private func loadAPIJSON() {
-   
-    var workingDirectory: URL
     
-    // print(apiJSONDocumentsDirURL)
-    // print(apiJSONBundleDirURL)
+    var workingDirectory: URL
     
     if FileManager.default.fileExists(atPath: apiJSONBundleDirURL.path) {
       print("API file found in bundle")
@@ -55,7 +43,7 @@ class APIStore: ObservableObject {
   }
   
   
- private func saveAPIJSON() {
+  private func saveAPIJSON() {
     let encoder = JSONEncoder()
     
     do {
@@ -71,7 +59,7 @@ class APIStore: ObservableObject {
   }
   
   
- private func decodeJSON(url: URL) {
+  private func decodeJSON(url: URL) {
     let decoder = JSONDecoder()
     do {
       let apiData = try Data(contentsOf: url)
