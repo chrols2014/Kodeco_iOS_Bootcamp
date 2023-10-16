@@ -9,22 +9,22 @@ struct ContentView: View {
           Text(api.api)
           
         }
-        
-//        ForEach(apiStore.loadedAPIData.entries) { index in
-//          Text(index.api)
-        //}
       }
-      //.listStyle( GroupedListStyle() )
       .navigationBarTitle("APIs")
       
       .navigationDestination(for: APIEntry.self) { api in
         APIDetailView(api: $apiStore.loadedAPIData.entries
           .first(where: { $0.id == api.id })!)
+      }
+      
     }
+    .alert("No API JSON File Found", isPresented: $apiStore.showingError) {
+                Button("OK", role: .cancel) { }
+            }
+    //.onAppear { apiStore.saveAPIJSON() }
     
-    }
-  
   }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
