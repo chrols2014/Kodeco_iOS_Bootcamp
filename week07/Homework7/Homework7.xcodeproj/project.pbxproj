@@ -17,7 +17,7 @@
 		3583377D2ADDA4DB0023CA5D /* APIEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583377C2ADDA4DB0023CA5D /* APIEntry.swift */; };
 		3583377F2ADDA53E0023CA5D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583377E2ADDA53E0023CA5D /* FileManager.swift */; };
 		358337822ADDB2100023CA5D /* APIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358337812ADDB2100023CA5D /* APIDetailView.swift */; };
-		BAF39C2E2AB792B400B18802 /* a2pilist.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF39C2D2AB792B400B18802 /* a2pilist.json */; };
+		BAF39C2E2AB792B400B18802 /* apilist.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF39C2D2AB792B400B18802 /* apilist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		3583377C2ADDA4DB0023CA5D /* APIEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEntry.swift; sourceTree = "<group>"; };
 		3583377E2ADDA53E0023CA5D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		358337812ADDB2100023CA5D /* APIDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDetailView.swift; sourceTree = "<group>"; };
-		BAF39C2D2AB792B400B18802 /* a2pilist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = a2pilist.json; sourceTree = "<group>"; };
+		BAF39C2D2AB792B400B18802 /* apilist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = apilist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 				18D775DA22AD963800AE281E /* LaunchScreen.storyboard */,
 				18D775CE22AD944400AE281E /* Info.plist */,
 				18D775C822AD944400AE281E /* Preview Content */,
-				BAF39C2D2AB792B400B18802 /* a2pilist.json */,
+				BAF39C2D2AB792B400B18802 /* apilist.json */,
 			);
 			path = Homework7;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 			files = (
 				18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */,
 				18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */,
-				BAF39C2E2AB792B400B18802 /* a2pilist.json in Resources */,
+				BAF39C2E2AB792B400B18802 /* apilist.json in Resources */,
 				18D775C722AD944400AE281E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

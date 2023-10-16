@@ -25,41 +25,34 @@ class APIStore: ObservableObject {
     saveAPIJSON()
   }
   
-  // private func loadJSONAPIEntries
+
   private func loadAPIJSON() {
-    let decoder = JSONDecoder()
+   
+    var workingDirectory: URL
     
-     print(apiJSONDocumentsDirURL)
+    // print(apiJSONDocumentsDirURL)
+    // print(apiJSONBundleDirURL)
     
-    
-    
-//    if FileManager.fileExists(atPath: apiJSONBundleDirURL.path()) {
-//      print("file found in bundle")
-//    } else {
-//      print("file not found in bundle")
-//    }
-//    
-//    if FileManager.default.fileExists(atPath: apiJSONDocumentsDirURL.path()) {
-//      print("file found in documents directory")
-//    } else {
-//      print("file not found in documents directory")
-//    }
-    
-    do {
-      let apiData = try Data(contentsOf: apiJSONBundleDirURL)
-      loadedAPIData = try decoder.decode(APIJSONData.self, from: apiData)
-    } catch let error {
-      print(error)
+    if FileManager.default.fileExists(atPath: apiJSONBundleDirURL.path) {
+      print("file found in bundle")
+      
+      workingDirectory = apiJSONBundleDirURL
+      decodeJSON(url: workingDirectory)
+      
+    } else if FileManager.default.fileExists(atPath: apiJSONDocumentsDirURL.path) {
+      print("file not in bundle but found in documents directory")
+      
+      workingDirectory = apiJSONDocumentsDirURL
+      decodeJSON(url: workingDirectory)
+      
+    } else {
+      print("file not found either directory")
       showingError = true
     }
-    
   }
   
   
-  
-  
-  
-  func saveAPIJSON() {
+ private func saveAPIJSON() {
     let encoder = JSONEncoder()
     
     do {
@@ -70,8 +63,20 @@ class APIStore: ObservableObject {
       try apiData.write(to: apiJSONURL, options: .atomicWrite)
     } catch let error {
       print(error)
-    
+      
     }
   }
   
+  
+ private func decodeJSON(url: URL) {
+    let decoder = JSONDecoder()
+    do {
+      let apiData = try Data(contentsOf: url)
+      loadedAPIData = try decoder.decode(APIJSONData.self, from: apiData)
+    } catch let error {
+      print(error)
+      showingError = true
+    }
+    
+  }
 }
