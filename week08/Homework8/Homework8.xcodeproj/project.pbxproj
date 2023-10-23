@@ -18,9 +18,6 @@
 		3583377F2ADDA53E0023CA5D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583377E2ADDA53E0023CA5D /* FileManager.swift */; };
 		358337822ADDB2100023CA5D /* APIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358337812ADDB2100023CA5D /* APIDetailView.swift */; };
 		358337872ADDE94A0023CA5D /* userinfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 358337862ADDE94A0023CA5D /* userinfo.json */; };
-		358337892ADDE9860023CA5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358337882ADDE9860023CA5D /* User.swift */; };
-		3583378B2ADDEA9D0023CA5D /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583378A2ADDEA9D0023CA5D /* UserStore.swift */; };
-		3583378D2ADDEB370023CA5D /* UserJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583378C2ADDEB370023CA5D /* UserJSONData.swift */; };
 		3583378F2ADDF1320023CA5D /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583378E2ADDF1310023CA5D /* UserDetailView.swift */; };
 		35EF08472AE6CAF200ED9418 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EF08462AE6CAF200ED9418 /* NetworkManager.swift */; };
 		BAF39C2E2AB792B400B18802 /* apilist.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF39C2D2AB792B400B18802 /* apilist.json */; };
@@ -40,9 +37,6 @@
 		3583377E2ADDA53E0023CA5D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		358337812ADDB2100023CA5D /* APIDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDetailView.swift; sourceTree = "<group>"; };
 		358337862ADDE94A0023CA5D /* userinfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userinfo.json; sourceTree = "<group>"; };
-		358337882ADDE9860023CA5D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		3583378A2ADDEA9D0023CA5D /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
-		3583378C2ADDEB370023CA5D /* UserJSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJSONData.swift; sourceTree = "<group>"; };
 		3583378E2ADDF1310023CA5D /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		35EF08462AE6CAF200ED9418 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BAF39C2D2AB792B400B18802 /* apilist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = apilist.json; sourceTree = "<group>"; };
@@ -115,8 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				3583377A2ADDA3E40023CA5D /* APIJSONData.swift */,
-				358337882ADDE9860023CA5D /* User.swift */,
-				3583378C2ADDEB370023CA5D /* UserJSONData.swift */,
 				3583377C2ADDA4DB0023CA5D /* APIEntry.swift */,
 			);
 			path = Models;
@@ -137,7 +129,6 @@
 			children = (
 				358337782ADDA3500023CA5D /* APIStore.swift */,
 				35EF08462AE6CAF200ED9418 /* NetworkManager.swift */,
-				3583378A2ADDEA9D0023CA5D /* UserStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -239,14 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				35EF08472AE6CAF200ED9418 /* NetworkManager.swift in Sources */,
-				3583378D2ADDEB370023CA5D /* UserJSONData.swift in Sources */,
 				358337792ADDA3500023CA5D /* APIStore.swift in Sources */,
 				3583377B2ADDA3E40023CA5D /* APIJSONData.swift in Sources */,
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
 				3583377F2ADDA53E0023CA5D /* FileManager.swift in Sources */,
-				358337892ADDE9860023CA5D /* User.swift in Sources */,
 				358337822ADDB2100023CA5D /* APIDetailView.swift in Sources */,
-				3583378B2ADDEA9D0023CA5D /* UserStore.swift in Sources */,
 				3583377D2ADDA4DB0023CA5D /* APIEntry.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
 				3583378F2ADDF1320023CA5D /* UserDetailView.swift in Sources */,
