@@ -18,7 +18,6 @@
 		3583377F2ADDA53E0023CA5D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583377E2ADDA53E0023CA5D /* FileManager.swift */; };
 		358337822ADDB2100023CA5D /* APIDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358337812ADDB2100023CA5D /* APIDetailView.swift */; };
 		358337872ADDE94A0023CA5D /* userinfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 358337862ADDE94A0023CA5D /* userinfo.json */; };
-		3583378F2ADDF1320023CA5D /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583378E2ADDF1310023CA5D /* UserDetailView.swift */; };
 		35EF08472AE6CAF200ED9418 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EF08462AE6CAF200ED9418 /* NetworkManager.swift */; };
 		BAF39C2E2AB792B400B18802 /* apilist.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF39C2D2AB792B400B18802 /* apilist.json */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 		3583377E2ADDA53E0023CA5D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		358337812ADDB2100023CA5D /* APIDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDetailView.swift; sourceTree = "<group>"; };
 		358337862ADDE94A0023CA5D /* userinfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userinfo.json; sourceTree = "<group>"; };
-		3583378E2ADDF1310023CA5D /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		35EF08462AE6CAF200ED9418 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BAF39C2D2AB792B400B18802 /* apilist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = apilist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				18D775C422AD944300AE281E /* ContentView.swift */,
-				3583378E2ADDF1310023CA5D /* UserDetailView.swift */,
 				358337812ADDB2100023CA5D /* APIDetailView.swift */,
 			);
 			path = Views;
@@ -237,7 +234,6 @@
 				358337822ADDB2100023CA5D /* APIDetailView.swift in Sources */,
 				3583377D2ADDA4DB0023CA5D /* APIEntry.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
-				3583378F2ADDF1320023CA5D /* UserDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
