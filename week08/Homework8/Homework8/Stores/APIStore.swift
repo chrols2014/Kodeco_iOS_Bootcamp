@@ -20,26 +20,28 @@ class APIStore: ObservableObject {
   }
   
   
-  private func loadAPIJSON() {
-    
+  private func loadAPIJSON() async {
+    var networkManager = NetworkManager()
     var workingDirectory: URL
     
-    if FileManager.default.fileExists(atPath: apiJSONBundleDirURL.path) {
-      print("API file found in bundle")
-      
-      workingDirectory = apiJSONBundleDirURL
-      decodeJSON(url: workingDirectory)
-      
-    } else if FileManager.default.fileExists(atPath: apiJSONDocumentsDirURL.path) {
-      print("API file not in bundle but found in documents directory")
-      
-      workingDirectory = apiJSONDocumentsDirURL
-      decodeJSON(url: workingDirectory)
-      
-    } else {
-      print("API file not found in either directory")
-      showingAPIError = true
-    }
+//    if FileManager.default.fileExists(atPath: apiJSONBundleDirURL.path) {
+//      print("API file found in bundle")
+//      
+//      workingDirectory = apiJSONBundleDirURL
+//      decodeJSON(url: workingDirectory)
+//      
+//    } else if FileManager.default.fileExists(atPath: apiJSONDocumentsDirURL.path) {
+//      print("API file not in bundle but found in documents directory")
+//      
+//      workingDirectory = apiJSONDocumentsDirURL
+//      decodeJSON(url: workingDirectory)
+//      
+//    } else {
+//      print("API file not found in either directory")
+//      showingAPIError = true
+//    }
+    
+    loadedAPIData = networkManager.getAPIData()
   }
   
   
@@ -59,7 +61,7 @@ class APIStore: ObservableObject {
   }
   
   
-  private func decodeJSON(url: URL) {
+  func decodeJSON(url: URL) {
     let decoder = JSONDecoder()
     do {
       let apiData = try Data(contentsOf: url)
