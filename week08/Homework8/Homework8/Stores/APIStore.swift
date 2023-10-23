@@ -1,6 +1,5 @@
 import Foundation
 
-
 class APIStore: ObservableObject {
   let apiJSONDocumentsDirURL = URL(fileURLWithPath: "apilist",
                                    relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
@@ -10,43 +9,37 @@ class APIStore: ObservableObject {
   
   @Published var loadedAPIData: APIJSONData = APIJSONData(count: 0, entries: [])
   @Published var showingAPIError: Bool = false
+  @Published var isFetchingData: Bool = true
   
-  init()  {
-    do {
-        loadAPIJSON()
-    }
-    
-//    if !loadedAPIData.entries.isEmpty {
-//      saveAPIJSON()
-//    }
-  }
+  init() {}
   
   
-  private func loadAPIJSON()  {
-    
+  func loadLocalAPIJSON()  {
     var workingDirectory: URL
     
-    //    if FileManager.default.fileExists(atPath: apiJSONBundleDirURL.path) {
-    //      print("API file found in bundle")
-    //
-    //      workingDirectory = apiJSONBundleDirURL
-    //      decodeJSON(url: workingDirectory)
-    //
-    //    } else if FileManager.default.fileExists(atPath: apiJSONDocumentsDirURL.path) {
-    //      print("API file not in bundle but found in documents directory")
-    //
-    //      workingDirectory = apiJSONDocumentsDirURL
-    //      decodeJSON(url: workingDirectory)
-    //
-    //    } else {
-    //      print("API file not found in either directory")
-    //      showingAPIError = true
-    //    }
- 
+    if FileManager.default.fileExists(atPath: apiJSONBundleDirURL.path) {
+      print("API file found in bundle")
+      
+      workingDirectory = apiJSONBundleDirURL
+      decodeLocalJSON(url: workingDirectory)
+      
+    } else if FileManager.default.fileExists(atPath: apiJSONDocumentsDirURL.path) {
+      print("API file not in bundle but found in documents directory")
+      
+      workingDirectory = apiJSONDocumentsDirURL
+      decodeLocalJSON(url: workingDirectory)
+      
+    } else {
+      print("API file not found in either directory")
+      showingAPIError = true
+    }
   }
   
   
   func fetchAPIData() async throws {
+    await MainActor.run {
+      isFetchingData = true
+    }
     
     guard let url = URL(string: "https://api.publicapis.org/entries") else {
       throw CustomErrors.invalidAPIURL
@@ -60,11 +53,17 @@ class APIStore: ObservableObject {
     
     do {
       let decoder = JSONDecoder()
-      loadedAPIData = try decoder.decode(APIJSONData.self, from: data)
+      try await MainActor.run {
+        loadedAPIData = try decoder.decode(APIJSONData.self, from: data)
+        saveAPIJSON()
+        isFetchingData = false
+      }
     } catch {
       throw CustomErrors.invalidAPIData
+      
     }
   }
+  
   
   private func saveAPIJSON() {
     let encoder = JSONEncoder()
@@ -82,7 +81,7 @@ class APIStore: ObservableObject {
   }
   
   
-  func decodeJSON(url: URL) {
+  func decodeLocalJSON(url: URL) {
     let decoder = JSONDecoder()
     do {
       let apiData = try Data(contentsOf: url)
@@ -93,4 +92,11 @@ class APIStore: ObservableObject {
     }
     
   }
+}
+
+
+enum CustomErrors: Error {
+  case invalidAPIURL
+  case invalidAPIResponse
+  case invalidAPIData
 }

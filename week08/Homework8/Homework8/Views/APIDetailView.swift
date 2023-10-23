@@ -13,9 +13,10 @@ struct APIDetailView: View {
         Section(header: Text("API Description")) {
           Text(api.description)
         }
-        
-        Section(header: Text("Authentication")) {
-          Text(api.auth)
+        if !api.auth.isEmpty {
+          Section(header: Text("Authentication")) {
+            Text(api.auth)
+          }
         }
         
         Section(header: Text("HTTPS Support")) {
