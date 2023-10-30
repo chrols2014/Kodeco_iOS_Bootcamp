@@ -17,11 +17,16 @@ struct GridItemView: View {
           AsyncImage(url: photo.src.small) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
+                    .clipped()
+                    .cornerRadius(3.0)
+                    //.frame(width: size, height: size, alignment: .center)
+                    .padding()
             } placeholder: {
                 ProgressView()
             }
             .frame(width: size, height: size)
+            
         }
     }
 }

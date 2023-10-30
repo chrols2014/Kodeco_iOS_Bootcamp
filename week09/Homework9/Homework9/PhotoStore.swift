@@ -53,6 +53,10 @@ class PhotoStore: ObservableObject {
     }
   }
   
+  func downloadDetailedImage() {
+    
+  }
+  
   
 }
 

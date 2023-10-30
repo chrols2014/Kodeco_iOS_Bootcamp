@@ -12,13 +12,28 @@ struct PhotoDetailView: View {
   @Binding var isShowingPhotoDetailView: Bool
   
     var body: some View {
-      AsyncImage(url: photo.src.large) { image in
-            image
-                .resizable()
-                .scaledToFit()
+      NavigationView {
+        AsyncImage(url: photo.src.large) { image in
+          image
+            .resizable()
+            .scaledToFit()
         } placeholder: {
-            ProgressView()
+          ProgressView()
         }
+//        .onTapGesture {
+//          isShowingPhotoDetailView = false
+//        }
+        
+        //Text("\(photo.alt)")
+        .toolbar {
+          ToolbarItem(placement: .topBarLeading) {
+            Button("Back", systemImage: "arrowshape.backward") {
+              isShowingPhotoDetailView = false
+            }.tint(.black)
+          }
+        }
+      }
+     
     }
 }
 
