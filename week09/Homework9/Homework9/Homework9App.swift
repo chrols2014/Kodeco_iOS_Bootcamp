@@ -11,7 +11,7 @@ import SwiftUI
 struct Homework9App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(photoStore: PhotoStore())
         }
     }
 }
