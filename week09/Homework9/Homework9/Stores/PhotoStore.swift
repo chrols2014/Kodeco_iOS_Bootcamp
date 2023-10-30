@@ -5,13 +5,15 @@
 //  Created by Chris Olsen on 2023-10-30.
 //
 
-import Foundation
+import SwiftUI
 
 
 class PhotoStore: ObservableObject {
   @Published var loadedAPIData: PexelsResponseModel = PexelsResponseModel(totalResults: 0, page: 0, perPage: 0, photos: [], nextPage: "")
   @Published var searchTerm = ""
   @Published var isShowingPhotoDetailView = false
+  
+  
   
   var selectedPhoto: Photo? {
       didSet {
@@ -53,7 +55,17 @@ class PhotoStore: ObservableObject {
     }
   }
   
-  func downloadDetailedImage() {
+  @MainActor func downloadDetailedImage(at url: URL, progress: Binding<Float>) async throws {
+    let (asyncBytes, response) = try await URLSession.shared.bytes(from: url)
+    
+    let contentLength = Float(response.expectedContentLength)
+    var data = Data(capacity: Int(contentLength))
+    
+    for try await byte in asyncBytes {
+      data.append(byte)
+      
+      progress.wrappedValue = Float(data.count) / Float(contentLength)
+    }
     
   }
   
