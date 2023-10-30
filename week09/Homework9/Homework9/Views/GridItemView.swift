@@ -8,32 +8,31 @@
 import SwiftUI
 
 struct GridItemView: View {
-    let size: Double
-    let photo: Photo
-
-
-    var body: some View {
-        ZStack(alignment: .topTrailing) {
-          AsyncImage(url: photo.src.small) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .clipped()
-                    .cornerRadius(3.0)
-                    //.frame(width: size, height: size, alignment: .center)
-                    .padding()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: size, height: size)
-            
-        }
+  let size: Double
+  let photo: Photo
+  
+  
+  var body: some View {
+    ZStack(alignment: .topTrailing) {
+      AsyncImage(url: photo.src.small) { image in
+        image
+          .resizable()
+          .scaledToFill()
+          .clipped()
+          .cornerRadius(3.0)
+          .padding()
+      } placeholder: {
+        ProgressView()
+      }
+      .frame(width: size, height: size)
+      
     }
+  }
 }
 
 
 struct GridItemView_Previews: PreviewProvider {
-    static var previews: some View {
-      GridItemView(size: 50, photo: MockData().samplePhoto)
-    }
+  static var previews: some View {
+    GridItemView(size: 50, photo: MockData().samplePhoto)
+  }
 }

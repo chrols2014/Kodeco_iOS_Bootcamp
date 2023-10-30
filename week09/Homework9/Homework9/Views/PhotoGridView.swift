@@ -13,19 +13,19 @@ struct PhotoGridView: View {
                              GridItem(.flexible()),
                              GridItem(.flexible())]
   
-    var body: some View {
-      LazyVGrid(columns: columns, spacing: 20) {
-        
-       
-          ForEach(photoStore.loadedAPIData.photos ) { photo in
-            GridItemView(size: 120, photo: photo)
-              .onTapGesture {
-                photoStore.selectedPhoto = photo
-              }
+  var body: some View {
+    LazyVGrid(columns: columns, spacing: 20) {
+      
+      
+      ForEach(photoStore.loadedAPIData.photos ) { photo in
+        GridItemView(size: 120, photo: photo)
+          .onTapGesture {
+            photoStore.selectedPhoto = photo
           }
-        }
-      .padding()
+      }
     }
+    .padding()
+  }
 }
 
 #Preview {

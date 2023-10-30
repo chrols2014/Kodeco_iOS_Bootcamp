@@ -12,19 +12,16 @@ class PhotoStore: ObservableObject {
   @Published var loadedAPIData: PexelsResponseModel = PexelsResponseModel(totalResults: 0, page: 0, perPage: 0, photos: [], nextPage: "")
   @Published var searchTerm = ""
   @Published var isShowingPhotoDetailView = false
-  
+  @Published var detailedImageDownloadLocation: URL?
   
   
   var selectedPhoto: Photo? {
-      didSet {
-        isShowingPhotoDetailView = true
-      }
+    didSet {
+      isShowingPhotoDetailView = true
+    }
   }
   
   func fetchAPIData() async throws {
-    //    await MainActor.run {
-    //      isFetchingData = true
-    //    }
     
     guard let url = URL(string: "https://api.pexels.com/v1/search?query=\(searchTerm)&per_page=50") else {
       throw CustomErrors.invalidAPIURL
@@ -45,9 +42,6 @@ class PhotoStore: ObservableObject {
       let decoder = JSONDecoder()
       try await MainActor.run {
         loadedAPIData = try decoder.decode(PexelsResponseModel.self, from: data)
-        //        saveAPIJSON()
-        //        isFetchingData = false
-        //print(data)
       }
     } catch {
       throw CustomErrors.invalidAPIData
@@ -64,8 +58,38 @@ class PhotoStore: ObservableObject {
     for try await byte in asyncBytes {
       data.append(byte)
       
-      progress.wrappedValue = Float(data.count) / Float(contentLength)
+      let currentProgress = Float(data.count) / contentLength
+      
+      if Int(progress.wrappedValue * 100) != Int(currentProgress * 100) {
+        progress.wrappedValue = currentProgress
+      }
     }
+    
+    let fileManager = FileManager.default
+    
+    guard let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+      throw CustomErrors.invalidAPIData
+    }
+    
+    let lastPathComponent = url.lastPathComponent
+    let destinationURL = documentsPath.appendingPathComponent(lastPathComponent)
+    
+    do {
+      if fileManager.fileExists(atPath: destinationURL.path) {
+        try fileManager.removeItem(at: destinationURL)
+      }
+      
+      try data.write(to: destinationURL)
+      
+      await MainActor.run {
+        detailedImageDownloadLocation = destinationURL
+      }
+      
+      
+    } catch {
+      print(error)
+    }
+    
     
   }
   

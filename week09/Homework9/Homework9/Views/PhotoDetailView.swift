@@ -14,19 +14,26 @@ struct PhotoDetailView: View {
   @MainActor @State private var downloadProgress: Float = 0.0
   @MainActor @State private var isDownloading = false
   
-    var body: some View {
-      NavigationView {
-        VStack {
-          AsyncImage(url: photo.src.large) { image in
-            image
-              .resizable()
-              .scaledToFit()
-          } placeholder: {
-            ProgressView()
+  var body: some View {
+    NavigationView {
+      VStack {
+        
+        if !isDownloading && photoStore.detailedImageDownloadLocation != nil {
+          AsyncImage(url: photoStore.detailedImageDownloadLocation) { phase in
+            
+            if let image = phase.image {
+              image 
+                .resizable()
+                .scaledToFit()
+            }
           }
-          
-          
-          Text("\(photo.alt)")
+        }
+        
+        if isDownloading {
+          ProgressView(value: downloadProgress)
+        }
+        
+        Text("\(photo.alt)")
           .toolbar {
             ToolbarItem(placement: .topBarLeading) {
               Button("Back", systemImage: "arrowshape.backward") {
@@ -34,20 +41,22 @@ struct PhotoDetailView: View {
               }.tint(.black)
             }
           }
-        }
-        if isDownloading {
-          ProgressView(value: downloadProgress)
-        }
       }
-      .task {
-        do {
-          try await photoStore.downloadDetailedImage(at: photo.src.large, progress: $downloadProgress)
-        } catch {
-          print(error)
-        }
+      
+    }
+    .task {
+      isDownloading = true
+      defer {
+        isDownloading = false
+      }
+      do {
+        try await photoStore.downloadDetailedImage(at: photo.src.large, progress: $downloadProgress)
+      } catch {
+        print(error)
       }
     }
-    
+  }
+  
 }
 
 #Preview {
