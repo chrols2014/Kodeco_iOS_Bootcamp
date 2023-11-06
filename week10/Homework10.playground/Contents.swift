@@ -1,47 +1,45 @@
 import Foundation
 
-var greeting = "Hello, playground"
-
-
 struct CatFact: Codable {
   let fact: String
   let length: Int32
 }
 
 
-//struct CatFactSequence: AsyncSequence {
-//  typealias AsyncIterator = CatFactIterator
-//  typealias Element = CatFact
-//
-//  func makeAsyncIterator() -> CatFactIterator {
-//    return CatFactIterator()
-//  }
-//
-//}
-//
-//
-//struct CatFactIterator: AsyncIteratorProtocol {
-//  typealias Element = CatFact
-//  var currentIteration: Int
-//  var requestedIteration
-//
-//  init(currentIteration: Int, requestedIteration: Int) {
-//    self.currentIteration = 1
-//    self.requestedIteration = requestedIteration
-//  }
-//
-//
-//  mutating func next() async throws -> String? {
-//    guard currentIteration <= requestedIteration else { return nil }
-//    try await Task.sleep(until: .now + .seconds(1), clock: .continuous)
-//    defer {
-//      //FetchData()
-//      currentIteration += currentIteration
-//    }
-//    return ""
-//  }
-//
-//}
+struct CatFactSequence: AsyncSequence {
+  typealias AsyncIterator = CatFactIterator
+  typealias Element = CatFact
+
+  let requestedIterations: Int
+  
+  func makeAsyncIterator() -> CatFactIterator {
+    return CatFactIterator(requestedIterations)
+  }
+
+}
+
+struct CatFactIterator: AsyncIteratorProtocol {
+  typealias Element = CatFact
+  var currentIteration: Int
+  var requestedIterations: Int
+  var currentCatFact: CatFact?
+
+  init(_ requestedIterations: Int) {
+    self.currentIteration = 0
+    self.requestedIterations = requestedIterations
+  }
+
+  mutating func next() async throws -> CatFact? {
+    guard currentIteration <= requestedIterations - 1 else { return nil }
+    try await Task.sleep(until: .now + .seconds(1), clock: .continuous)
+    try await currentCatFact = fetchData()
+    defer {
+      currentIteration += 1
+    }
+    return currentCatFact
+  }
+
+}
 
 func fetchData() async throws -> CatFact {
   var catFact: CatFact
@@ -71,17 +69,11 @@ func fetchData() async throws -> CatFact {
   return catFact
 }
 Task {
-  try await print(fetchData().fact)
+  for try await item in CatFactSequence(requestedIterations: 10) {
+    print(item.fact)
+  }
+  
 }
-
-//var funFact: CatFact = fetchData()
-//print("\(funFact.fact)")
-
-
-//AsyncSequnce
-//Iterator
-//GetCatFacts with parameter for how many
-
 
 
 enum CustomErrors: Error {
