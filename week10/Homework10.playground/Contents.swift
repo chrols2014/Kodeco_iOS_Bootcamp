@@ -1,18 +1,18 @@
 import Foundation
 
-
+//MARK: - Call Site
 fetchMeSomeCatFacts(numberOfFactsToGet: 10)
 
 
 
-// MARK: -CatFact Model for decoding
+// MARK: - CatFact Model for Decoding
 struct CatFact: Codable {
   let fact: String
   let length: Int32
 }
 
 
-// MARK: -AsyncSequence
+// MARK: - AsyncSequence
 struct CatFactSequence: AsyncSequence {
   typealias AsyncIterator = CatFactIterator
   typealias Element = CatFact
@@ -40,7 +40,7 @@ struct CatFactIterator: AsyncIteratorProtocol {
   mutating func next() async throws -> CatFact? {
     guard currentIteration <= requestedIterations - 1 else { return nil }
     try await currentCatFact = fetchData()
-    try await Task.sleep(until: .now + .seconds(1), clock: .continuous)
+    try await Task.sleep(until: .now + .seconds(0.5), clock: .continuous)
     defer {
       currentIteration += 1
     }
