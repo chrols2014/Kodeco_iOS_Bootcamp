@@ -33,34 +33,48 @@
 import SwiftUI
 
 struct ContentView: View {
+  @Environment(\.verticalSizeClass) var verticalSizeClass
+  @Environment(\.horizontalSizeClass) var horizontalSizeClass
   @State private var alertIsVisible: Bool = false
-  @State private var redColor: Double = 0.0
-  @State private var greenColor: Double = 0.0
-  @State private var blueColor: Double = 0.0
-  @State private var foregroundColor = Color(red: 0, green: 0, blue: 0)
-
+  @State private var redColor: Double = 0
+  @State private var greenColor: Double = 0
+  @State private var blueColor: Double = 0
+  @State private var squareColor = Color(red: 0, green: 0, blue: 0)
+  
   var body: some View {
-
-    VStack {
-      Text("Color Picker")
-        .font(.largeTitle)
-
-      RoundedRectangle(cornerRadius: 0)
-        .foregroundColor(foregroundColor)
-        .border(.black)
-        .padding(.bottom, 20)
-   
-      ColourSliderView(colorValue: $redColor, colorSelection: "Red")
-      ColourSliderView(colorValue: $greenColor, colorSelection: "Green")
-      ColourSliderView(colorValue: $blueColor, colorSelection: "Blue")
-     
-      Button("Set Color") {
-        foregroundColor = Color(red: redColor / 255, green: greenColor / 255, blue: blueColor / 255)
+    ZStack {
+      if verticalSizeClass == .regular && horizontalSizeClass == .compact {
+        VStack {
+          Text("Color Picker")
+            .font(.largeTitle)
+          ColorPickerSquare(squareColor: $squareColor)
+          
+          ColorSliderView(colorValue: $redColor, colorSelection: "Red", sliderTint: .red)
+          ColorSliderView(colorValue: $greenColor, colorSelection: "Green", sliderTint: .green)
+          ColorSliderView(colorValue: $blueColor, colorSelection: "Blue", sliderTint: .blue)
+          
+          ColorPickerButton(foreGroundColor: $squareColor, redValue: $redColor, greenValue: $greenColor, blueValue: $blueColor)
+        }
+      } else {
+        HStack {
+          VStack {
+            Text("Color Picker")
+              .font(.largeTitle)
+            ColorPickerSquare(squareColor: $squareColor)
+          }
+          VStack {
+            ColorSliderView(colorValue: $redColor, colorSelection: "Red", sliderTint: .red)
+            ColorSliderView(colorValue: $greenColor, colorSelection: "Green", sliderTint: .green)
+            ColorSliderView(colorValue: $blueColor, colorSelection: "Blue", sliderTint: .blue)
+            
+            ColorPickerButton(foreGroundColor: $squareColor, redValue: $redColor, greenValue: $greenColor, blueValue: $blueColor)
+          }
+          .padding()
+        }
       }
     }
-    .background(Color.white)
-    .padding(20)
-
+    .background(Color("Background"))
+    .padding(Constants.GeneralUI.generalPadding)
   }
 }
 

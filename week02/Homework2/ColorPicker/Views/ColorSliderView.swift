@@ -1,15 +1,16 @@
 import SwiftUI
 
-struct ColourSliderView: View {
-  
+struct ColorSliderView: View {
   @Binding var colorValue: Double
   var colorSelection: String
+  var sliderTint: Color
   
     var body: some View {
       VStack {
         Text(colorSelection)
         HStack {
-          Slider(value: $colorValue, in: 0...255)
+          Slider(value: $colorValue, in: 0...Constants.GeneralUI.colorMaxValueInt)
+            .tint(sliderTint)
           Text("\(Int(colorValue.rounded()))")
         }
       }
@@ -17,5 +18,5 @@ struct ColourSliderView: View {
 }
 
 #Preview {
-  ColourSliderView(colorValue: .constant(0.5), colorSelection: "Test")
+  ColorSliderView(colorValue: .constant(0.5), colorSelection: "Test", sliderTint: .red)
 }
