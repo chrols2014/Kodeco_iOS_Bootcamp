@@ -49,11 +49,20 @@ struct ContentView: View {
             .font(.largeTitle)
           ColorPickerSquare(squareColor: $squareColor)
           
-          ColorSliderView(colorValue: $redColor, colorSelection: "Red", sliderTint: .red)
-          ColorSliderView(colorValue: $greenColor, colorSelection: "Green", sliderTint: .green)
-          ColorSliderView(colorValue: $blueColor, colorSelection: "Blue", sliderTint: .blue)
+          ColorSliderView(colorValue: $redColor,
+                          colorSelection: "Red",
+                          sliderTint: .red)
+          ColorSliderView(colorValue: $greenColor,
+                          colorSelection: "Green",
+                          sliderTint: .green)
+          ColorSliderView(colorValue: $blueColor,
+                          colorSelection: "Blue",
+                          sliderTint: .blue)
           
-          ColorPickerButton(foreGroundColor: $squareColor, redValue: $redColor, greenValue: $greenColor, blueValue: $blueColor)
+          ColorPickerButton(foreGroundColor: $squareColor,
+                            redValue: $redColor,
+                            greenValue: $greenColor,
+                            blueValue: $blueColor)
         }
       } else {
         HStack {
@@ -63,13 +72,23 @@ struct ContentView: View {
             ColorPickerSquare(squareColor: $squareColor)
           }
           VStack {
-            ColorSliderView(colorValue: $redColor, colorSelection: "Red", sliderTint: .red)
-            ColorSliderView(colorValue: $greenColor, colorSelection: "Green", sliderTint: .green)
-            ColorSliderView(colorValue: $blueColor, colorSelection: "Blue", sliderTint: .blue)
+            ColorSliderView(colorValue: $redColor,
+                            colorSelection: "Red",
+                            sliderTint: .red)
+            ColorSliderView(colorValue: $greenColor,
+                            colorSelection: "Green",
+                            sliderTint: .green)
+            ColorSliderView(colorValue: $blueColor,
+                            colorSelection: "Blue",
+                            sliderTint: .blue)
             
-            ColorPickerButton(foreGroundColor: $squareColor, redValue: $redColor, greenValue: $greenColor, blueValue: $blueColor)
+            ColorPickerButton(foreGroundColor: $squareColor,
+                              redValue: $redColor,
+                              greenValue: $greenColor,
+                              blueValue: $blueColor)
+            .padding(.top,Constants.GeneralUI.generalPadding)
           }
-          .padding()
+          .padding(Constants.GeneralUI.generalPadding)
         }
       }
     }

@@ -15,7 +15,7 @@ struct ColorPickerButton: View {
     .buttonStyle(.borderedProminent)
     .controlSize(.large)
     .overlay(
-      RoundedRectangle(cornerRadius: Constants.GeneralUI.colorButtonStrokeWidth)
+      RoundedRectangle(cornerRadius: Constants.GeneralUI.colorButtonCornerRadius)
         .stroke(.white, lineWidth: Constants.GeneralUI.colorButtonStrokeWidth)
     )
   }

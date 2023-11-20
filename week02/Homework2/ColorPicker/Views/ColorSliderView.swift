@@ -5,16 +5,16 @@ struct ColorSliderView: View {
   var colorSelection: String
   var sliderTint: Color
   
-    var body: some View {
-      VStack {
-        Text(colorSelection)
-        HStack {
-          Slider(value: $colorValue, in: 0...Constants.GeneralUI.colorMaxValueInt)
-            .tint(sliderTint)
-          Text("\(Int(colorValue.rounded()))")
-        }
+  var body: some View {
+    VStack {
+      Text(colorSelection)
+      HStack {
+        Slider(value: $colorValue, in: 0...Constants.GeneralUI.colorMaxValueInt)
+          .tint(sliderTint)
+        Text("\(Int(colorValue.rounded()))")
       }
     }
+  }
 }
 
 #Preview {

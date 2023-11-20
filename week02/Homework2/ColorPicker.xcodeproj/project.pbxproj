@@ -12,7 +12,10 @@
 		18D775C722AD944400AE281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C622AD944400AE281E /* Assets.xcassets */; };
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
-		357192E62B0556EE00C36BCC /* ColourSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192E52B0556EE00C36BCC /* ColourSliderView.swift */; };
+		357192E62B0556EE00C36BCC /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192E52B0556EE00C36BCC /* ColorSliderView.swift */; };
+		357192E82B0563A700C36BCC /* ColorPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192E72B0563A700C36BCC /* ColorPickerButton.swift */; };
+		357192EA2B05661000C36BCC /* ColorPickerSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192E92B05661000C36BCC /* ColorPickerSquare.swift */; };
+		357192EC2B05727900C36BCC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192EB2B05727900C36BCC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +26,10 @@
 		18D775C922AD944400AE281E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		357192E52B0556EE00C36BCC /* ColourSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourSliderView.swift; sourceTree = "<group>"; };
+		357192E52B0556EE00C36BCC /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
+		357192E72B0563A700C36BCC /* ColorPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerButton.swift; sourceTree = "<group>"; };
+		357192E92B05661000C36BCC /* ColorPickerSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerSquare.swift; sourceTree = "<group>"; };
+		357192EB2B05727900C36BCC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				1839F4AF25190F2A00BB00F1 /* AppMain.swift */,
-				18D775C422AD944300AE281E /* ContentView.swift */,
-				357192E52B0556EE00C36BCC /* ColourSliderView.swift */,
+				357192ED2B05766800C36BCC /* Model */,
+				357192EE2B05767200C36BCC /* Views */,
 				18D775C622AD944400AE281E /* Assets.xcassets */,
 				18D775DA22AD963800AE281E /* LaunchScreen.storyboard */,
 				18D775CE22AD944400AE281E /* Info.plist */,
@@ -75,6 +81,25 @@
 				18D775C922AD944400AE281E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		357192ED2B05766800C36BCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				357192EB2B05727900C36BCC /* Constants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		357192EE2B05767200C36BCC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18D775C422AD944300AE281E /* ContentView.swift */,
+				357192E72B0563A700C36BCC /* ColorPickerButton.swift */,
+				357192E92B05661000C36BCC /* ColorPickerSquare.swift */,
+				357192E52B0556EE00C36BCC /* ColorSliderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +199,10 @@
 			files = (
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
-				357192E62B0556EE00C36BCC /* ColourSliderView.swift in Sources */,
+				357192EA2B05661000C36BCC /* ColorPickerSquare.swift in Sources */,
+				357192E62B0556EE00C36BCC /* ColorSliderView.swift in Sources */,
+				357192E82B0563A700C36BCC /* ColorPickerButton.swift in Sources */,
+				357192EC2B05727900C36BCC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +345,7 @@
 				DEVELOPMENT_TEAM = BBK84N9JY9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ColorPicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,7 +366,7 @@
 				DEVELOPMENT_TEAM = BBK84N9JY9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ColorPicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

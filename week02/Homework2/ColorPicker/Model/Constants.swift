@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 enum Constants {
   enum GeneralUI {
     
@@ -14,7 +13,4 @@ enum Constants {
     
     public static let generalPadding: CGFloat = 20
   }
-  
-  
-  
 }
