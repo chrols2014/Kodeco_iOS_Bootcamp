@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct MixologyApp: App {
-    var body: some Scene {
-        WindowGroup {
-          ContentView(drinkStore: DrinkStore())
-        }
+  var body: some Scene {
+    WindowGroup {
+      ContentView(drinkStore: DrinkStore())
     }
+  }
 }

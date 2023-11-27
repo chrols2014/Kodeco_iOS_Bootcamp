@@ -29,7 +29,7 @@ struct DrinkDetailView: View {
       
       
       VStack(spacing: 10) {
-        Text(drink.drinkName)
+        Text(drink.drinkName.capitalized)
           .font(.title)
         
         Text(drink.glass ?? "")

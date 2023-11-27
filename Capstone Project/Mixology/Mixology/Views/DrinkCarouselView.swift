@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct DrinkCarouselView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  var drinks: [Drink]
+  var title: String
+  var body: some View {
+    VStack {
+      HStack {
+        Text(title)
+          .font(.title2)
+        Spacer()
+      }
+      ScrollView(.horizontal, showsIndicators: false) {
+
+        HStack {
+          ForEach(drinks) { drink in
+            NavigationLink(value: drink) {
+              DrinkCardView(drink: drink)
+            }
+
+
+          }
+
+        }
+
+      }
     }
+    .padding(.leading, 20)
+//    .navigationDestination(for: Drink.self) { drink in
+//      DrinkDetailView(drink: drinks
+//        .first(where: { $0.id == drink.id })!)
+//    }
+  }
 }
 
 #Preview {
-    DrinkCarouselView()
+  DrinkCarouselView(drinks: [], title: "TestTitle")
 }

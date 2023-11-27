@@ -8,5 +8,5 @@
 import Foundation
 
 struct Drinks: Codable, Hashable {
-    let drinks: [[String: String?]]
+  let drinks: [[String: String?]]
 }

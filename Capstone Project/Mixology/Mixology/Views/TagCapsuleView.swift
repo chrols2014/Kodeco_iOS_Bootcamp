@@ -9,9 +9,7 @@ import SwiftUI
 
 struct TagCapsuleView: View {
   var tag: String
-  
     var body: some View {
-        
       Text(tag)
         .font(.footnote)
         .padding(.horizontal, 7)

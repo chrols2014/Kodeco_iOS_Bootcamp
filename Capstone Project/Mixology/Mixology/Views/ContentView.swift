@@ -11,14 +11,15 @@ import SwiftUI
 
 struct ContentView: View {
   @ObservedObject var drinkStore: DrinkStore
-  
+
   var body: some View {
     VStack {
       NavigationStack {
         
         TabView{
-         
-          Text("HomeScreen")
+          VStack {
+            HomeScreenView(drinkStore: drinkStore)
+          }
             .tabItem {
               Label("Home", systemImage: "wineglass")
                 
@@ -37,56 +38,43 @@ struct ContentView: View {
           
         }
       }
-        .navigationBarTitle("Bevvy")
-        
+        .navigationBarTitle("Mixology")
+
         //.font(.largeTitle)
-        
+        .navigationDestination(for: Drink.self) { drink in
+          DrinkDetailView(drink: drink)
+            //.first(where: { $0.id == drink.id })!)
+        }
       }
       
+
+
       
       //.searchable(text: <#T##Binding<String>#>)
       
       
-      
-      
-      
-      
-//            if !drinkStore.loadedDrinkData.drinks.isEmpty {
-//              Text(drinkStore.loadedDrinkData.drinks.first!.drinkName)
-//              AsyncImage(url: drinkStore.loadedDrinkData.drinks.first?.imageURL)
-//              Text((drinkStore.loadedDrinkData.drinks.first?.instructions)!)
-//        }
-//                Spacer()
-      
-      
-//                Button {
-//                  Task {
-//                    do {
-//                      try await drinkStore.fetchAPIData()
-//                      print("fetched remote data")
-//                      print(drinkStore.loadedDrinkData.drinks.first!.tagsArray.count)
-//                     // apiStore.isFetchingData = false
-//                    } catch CustomErrors.invalidAPIURL {
-//                      print("InvalidAPIURL")
-//                      //apiStore.isFetchingData = false
-//                    } catch CustomErrors.invalidAPIResponse {
-//                      print("Invalid Reponse")
-//                      //apiStore.isFetchingData = false
-//                    } catch CustomErrors.invalidAPIData {
-//                      print("Invalid Data")
-//                      //apiStore.isFetchingData = false
-//                    } catch {
-//                      print("Unexpected Error")
-//                    }
-//                  }
-//                } label: {
-//                  Text("Test")
-//                }
-//      
-//              }
-//              .padding()
+    
+    }
+    .task {
+      do {
+
+        try await drinkStore.fetchPopularDrinkAPIData()
+        try await drinkStore.fetchRandomDrinkAPIData()
+        try await drinkStore.fetchAPIData()
+      } catch CustomErrors.invalidAPIURL {
+      } catch CustomErrors.invalidAPIResponse {
+      }  catch CustomErrors.invalidAPIData {
+      } catch {
+        print("unexpected error")
+
+      }
+
     }
   }
+
+
+
+
 }
 
 #Preview {

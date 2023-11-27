@@ -21,10 +21,12 @@ struct DrinkCardView: View {
       .aspectRatio(contentMode: .fit)
       
       Spacer()
-      Text(drink.drinkName)
+      Text(drink.drinkName.capitalized)
+
+        .tint(.black)
       Spacer()
     }
-    .frame(width: 140, height: 170)
+    .frame(width: 160, height: 200)
     .background(.gray)
     .cornerRadius(5)
   }
