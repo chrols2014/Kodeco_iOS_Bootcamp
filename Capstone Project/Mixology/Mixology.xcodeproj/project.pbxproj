@@ -1,0 +1,661 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3513650F2B1524CA0094F42C /* MixologyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513650E2B1524CA0094F42C /* MixologyApp.swift */; };
+		351365132B1524CC0094F42C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351365122B1524CC0094F42C /* Assets.xcassets */; };
+		351365162B1524CC0094F42C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351365152B1524CC0094F42C /* Preview Assets.xcassets */; };
+		351365202B1524CC0094F42C /* MixologyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513651F2B1524CC0094F42C /* MixologyTests.swift */; };
+		3513652A2B1524CC0094F42C /* MixologyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365292B1524CC0094F42C /* MixologyUITests.swift */; };
+		3513652C2B1524CC0094F42C /* MixologyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513652B2B1524CC0094F42C /* MixologyUITestsLaunchTests.swift */; };
+		351365412B1525030094F42C /* DrinkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365382B1525030094F42C /* DrinkDetailView.swift */; };
+		351365422B1525030094F42C /* DrinkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365382B1525030094F42C /* DrinkDetailView.swift */; };
+		351365432B1525030094F42C /* DrinkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365382B1525030094F42C /* DrinkDetailView.swift */; };
+		351365442B1525030094F42C /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365392B1525030094F42C /* DrinkModel.swift */; };
+		351365452B1525030094F42C /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365392B1525030094F42C /* DrinkModel.swift */; };
+		351365462B1525030094F42C /* DrinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365392B1525030094F42C /* DrinkModel.swift */; };
+		351365472B1525040094F42C /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653A2B1525030094F42C /* BrowseView.swift */; };
+		351365482B1525040094F42C /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653A2B1525030094F42C /* BrowseView.swift */; };
+		351365492B1525040094F42C /* BrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653A2B1525030094F42C /* BrowseView.swift */; };
+		3513654A2B1525040094F42C /* DrinkCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653B2B1525030094F42C /* DrinkCardView.swift */; };
+		3513654B2B1525040094F42C /* DrinkCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653B2B1525030094F42C /* DrinkCardView.swift */; };
+		3513654C2B1525040094F42C /* DrinkCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653B2B1525030094F42C /* DrinkCardView.swift */; };
+		3513654D2B1525040094F42C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653C2B1525030094F42C /* ContentView.swift */; };
+		3513654E2B1525040094F42C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653C2B1525030094F42C /* ContentView.swift */; };
+		3513654F2B1525040094F42C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653C2B1525030094F42C /* ContentView.swift */; };
+		351365502B1525040094F42C /* DrinkListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653D2B1525030094F42C /* DrinkListCellView.swift */; };
+		351365512B1525040094F42C /* DrinkListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653D2B1525030094F42C /* DrinkListCellView.swift */; };
+		351365522B1525040094F42C /* DrinkListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653D2B1525030094F42C /* DrinkListCellView.swift */; };
+		351365532B1525040094F42C /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653E2B1525030094F42C /* Drinks.swift */; };
+		351365542B1525040094F42C /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653E2B1525030094F42C /* Drinks.swift */; };
+		351365552B1525040094F42C /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653E2B1525030094F42C /* Drinks.swift */; };
+		351365562B1525040094F42C /* TagCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653F2B1525030094F42C /* TagCapsuleView.swift */; };
+		351365572B1525040094F42C /* TagCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653F2B1525030094F42C /* TagCapsuleView.swift */; };
+		351365582B1525040094F42C /* TagCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513653F2B1525030094F42C /* TagCapsuleView.swift */; };
+		351365592B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
+		3513655A2B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
+		3513655B2B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3513651C2B1524CC0094F42C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 351365032B1524CA0094F42C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3513650A2B1524CA0094F42C;
+			remoteInfo = Mixology;
+		};
+		351365262B1524CC0094F42C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 351365032B1524CA0094F42C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3513650A2B1524CA0094F42C;
+			remoteInfo = Mixology;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3513650B2B1524CA0094F42C /* Mixology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixology.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3513650E2B1524CA0094F42C /* MixologyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixologyApp.swift; sourceTree = "<group>"; };
+		351365122B1524CC0094F42C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		351365152B1524CC0094F42C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3513651B2B1524CC0094F42C /* MixologyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixologyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3513651F2B1524CC0094F42C /* MixologyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixologyTests.swift; sourceTree = "<group>"; };
+		351365252B1524CC0094F42C /* MixologyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixologyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		351365292B1524CC0094F42C /* MixologyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixologyUITests.swift; sourceTree = "<group>"; };
+		3513652B2B1524CC0094F42C /* MixologyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixologyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		351365382B1525030094F42C /* DrinkDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkDetailView.swift; sourceTree = "<group>"; };
+		351365392B1525030094F42C /* DrinkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkModel.swift; sourceTree = "<group>"; };
+		3513653A2B1525030094F42C /* BrowseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
+		3513653B2B1525030094F42C /* DrinkCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkCardView.swift; sourceTree = "<group>"; };
+		3513653C2B1525030094F42C /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../../Desktop/BevvyTest/BevvyTest/ContentView.swift; sourceTree = "<group>"; };
+		3513653D2B1525030094F42C /* DrinkListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkListCellView.swift; sourceTree = "<group>"; };
+		3513653E2B1525030094F42C /* Drinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		3513653F2B1525030094F42C /* TagCapsuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCapsuleView.swift; sourceTree = "<group>"; };
+		351365402B1525030094F42C /* DrinkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkStore.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		351365082B1524CA0094F42C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351365182B1524CC0094F42C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351365222B1524CC0094F42C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		351365022B1524CA0094F42C = {
+			isa = PBXGroup;
+			children = (
+				3513650D2B1524CA0094F42C /* Mixology */,
+				3513651E2B1524CC0094F42C /* MixologyTests */,
+				351365282B1524CC0094F42C /* MixologyUITests */,
+				3513650C2B1524CA0094F42C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3513650C2B1524CA0094F42C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3513650B2B1524CA0094F42C /* Mixology.app */,
+				3513651B2B1524CC0094F42C /* MixologyTests.xctest */,
+				351365252B1524CC0094F42C /* MixologyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3513650D2B1524CA0094F42C /* Mixology */ = {
+			isa = PBXGroup;
+			children = (
+				3513650E2B1524CA0094F42C /* MixologyApp.swift */,
+				3513653A2B1525030094F42C /* BrowseView.swift */,
+				3513653C2B1525030094F42C /* ContentView.swift */,
+				3513653B2B1525030094F42C /* DrinkCardView.swift */,
+				351365382B1525030094F42C /* DrinkDetailView.swift */,
+				3513653D2B1525030094F42C /* DrinkListCellView.swift */,
+				351365392B1525030094F42C /* DrinkModel.swift */,
+				3513653E2B1525030094F42C /* Drinks.swift */,
+				351365402B1525030094F42C /* DrinkStore.swift */,
+				3513653F2B1525030094F42C /* TagCapsuleView.swift */,
+				351365122B1524CC0094F42C /* Assets.xcassets */,
+				351365142B1524CC0094F42C /* Preview Content */,
+			);
+			path = Mixology;
+			sourceTree = "<group>";
+		};
+		351365142B1524CC0094F42C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				351365152B1524CC0094F42C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3513651E2B1524CC0094F42C /* MixologyTests */ = {
+			isa = PBXGroup;
+			children = (
+				3513651F2B1524CC0094F42C /* MixologyTests.swift */,
+			);
+			path = MixologyTests;
+			sourceTree = "<group>";
+		};
+		351365282B1524CC0094F42C /* MixologyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				351365292B1524CC0094F42C /* MixologyUITests.swift */,
+				3513652B2B1524CC0094F42C /* MixologyUITestsLaunchTests.swift */,
+			);
+			path = MixologyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3513650A2B1524CA0094F42C /* Mixology */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3513652F2B1524CC0094F42C /* Build configuration list for PBXNativeTarget "Mixology" */;
+			buildPhases = (
+				351365072B1524CA0094F42C /* Sources */,
+				351365082B1524CA0094F42C /* Frameworks */,
+				351365092B1524CA0094F42C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mixology;
+			productName = Mixology;
+			productReference = 3513650B2B1524CA0094F42C /* Mixology.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3513651A2B1524CC0094F42C /* MixologyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 351365322B1524CC0094F42C /* Build configuration list for PBXNativeTarget "MixologyTests" */;
+			buildPhases = (
+				351365172B1524CC0094F42C /* Sources */,
+				351365182B1524CC0094F42C /* Frameworks */,
+				351365192B1524CC0094F42C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3513651D2B1524CC0094F42C /* PBXTargetDependency */,
+			);
+			name = MixologyTests;
+			productName = MixologyTests;
+			productReference = 3513651B2B1524CC0094F42C /* MixologyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		351365242B1524CC0094F42C /* MixologyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 351365352B1524CC0094F42C /* Build configuration list for PBXNativeTarget "MixologyUITests" */;
+			buildPhases = (
+				351365212B1524CC0094F42C /* Sources */,
+				351365222B1524CC0094F42C /* Frameworks */,
+				351365232B1524CC0094F42C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				351365272B1524CC0094F42C /* PBXTargetDependency */,
+			);
+			name = MixologyUITests;
+			productName = MixologyUITests;
+			productReference = 351365252B1524CC0094F42C /* MixologyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		351365032B1524CA0094F42C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					3513650A2B1524CA0094F42C = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					3513651A2B1524CC0094F42C = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 3513650A2B1524CA0094F42C;
+					};
+					351365242B1524CC0094F42C = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 3513650A2B1524CA0094F42C;
+					};
+				};
+			};
+			buildConfigurationList = 351365062B1524CA0094F42C /* Build configuration list for PBXProject "Mixology" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 351365022B1524CA0094F42C;
+			productRefGroup = 3513650C2B1524CA0094F42C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3513650A2B1524CA0094F42C /* Mixology */,
+				3513651A2B1524CC0094F42C /* MixologyTests */,
+				351365242B1524CC0094F42C /* MixologyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		351365092B1524CA0094F42C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351365162B1524CC0094F42C /* Preview Assets.xcassets in Resources */,
+				351365132B1524CC0094F42C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351365192B1524CC0094F42C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351365232B1524CC0094F42C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		351365072B1524CA0094F42C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351365442B1525030094F42C /* DrinkModel.swift in Sources */,
+				351365502B1525040094F42C /* DrinkListCellView.swift in Sources */,
+				351365532B1525040094F42C /* Drinks.swift in Sources */,
+				3513654D2B1525040094F42C /* ContentView.swift in Sources */,
+				351365562B1525040094F42C /* TagCapsuleView.swift in Sources */,
+				351365592B1525040094F42C /* DrinkStore.swift in Sources */,
+				351365472B1525040094F42C /* BrowseView.swift in Sources */,
+				3513654A2B1525040094F42C /* DrinkCardView.swift in Sources */,
+				351365412B1525030094F42C /* DrinkDetailView.swift in Sources */,
+				3513650F2B1524CA0094F42C /* MixologyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351365172B1524CC0094F42C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3513655A2B1525040094F42C /* DrinkStore.swift in Sources */,
+				351365482B1525040094F42C /* BrowseView.swift in Sources */,
+				351365422B1525030094F42C /* DrinkDetailView.swift in Sources */,
+				351365542B1525040094F42C /* Drinks.swift in Sources */,
+				3513654E2B1525040094F42C /* ContentView.swift in Sources */,
+				351365512B1525040094F42C /* DrinkListCellView.swift in Sources */,
+				351365572B1525040094F42C /* TagCapsuleView.swift in Sources */,
+				3513654B2B1525040094F42C /* DrinkCardView.swift in Sources */,
+				351365202B1524CC0094F42C /* MixologyTests.swift in Sources */,
+				351365452B1525030094F42C /* DrinkModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351365212B1524CC0094F42C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351365462B1525030094F42C /* DrinkModel.swift in Sources */,
+				351365522B1525040094F42C /* DrinkListCellView.swift in Sources */,
+				3513652C2B1524CC0094F42C /* MixologyUITestsLaunchTests.swift in Sources */,
+				351365552B1525040094F42C /* Drinks.swift in Sources */,
+				3513654F2B1525040094F42C /* ContentView.swift in Sources */,
+				351365582B1525040094F42C /* TagCapsuleView.swift in Sources */,
+				3513655B2B1525040094F42C /* DrinkStore.swift in Sources */,
+				351365492B1525040094F42C /* BrowseView.swift in Sources */,
+				3513654C2B1525040094F42C /* DrinkCardView.swift in Sources */,
+				351365432B1525030094F42C /* DrinkDetailView.swift in Sources */,
+				3513652A2B1524CC0094F42C /* MixologyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3513651D2B1524CC0094F42C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3513650A2B1524CA0094F42C /* Mixology */;
+			targetProxy = 3513651C2B1524CC0094F42C /* PBXContainerItemProxy */;
+		};
+		351365272B1524CC0094F42C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3513650A2B1524CA0094F42C /* Mixology */;
+			targetProxy = 351365262B1524CC0094F42C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3513652D2B1524CC0094F42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3513652E2B1524CC0094F42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		351365302B1524CC0094F42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Mixology/Preview Content\"";
+				DEVELOPMENT_TEAM = 2N4H8PRJM5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.chrisolsen.Mixology;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		351365312B1524CC0094F42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Mixology/Preview Content\"";
+				DEVELOPMENT_TEAM = 2N4H8PRJM5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.chrisolsen.Mixology;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		351365332B1524CC0094F42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2N4H8PRJM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.chrisolsen.MixologyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mixology.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mixology";
+			};
+			name = Debug;
+		};
+		351365342B1524CC0094F42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2N4H8PRJM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.chrisolsen.MixologyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mixology.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mixology";
+			};
+			name = Release;
+		};
+		351365362B1524CC0094F42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2N4H8PRJM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.chrisolsen.MixologyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Mixology;
+			};
+			name = Debug;
+		};
+		351365372B1524CC0094F42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2N4H8PRJM5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.chrisolsen.MixologyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Mixology;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		351365062B1524CA0094F42C /* Build configuration list for PBXProject "Mixology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3513652D2B1524CC0094F42C /* Debug */,
+				3513652E2B1524CC0094F42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3513652F2B1524CC0094F42C /* Build configuration list for PBXNativeTarget "Mixology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351365302B1524CC0094F42C /* Debug */,
+				351365312B1524CC0094F42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		351365322B1524CC0094F42C /* Build configuration list for PBXNativeTarget "MixologyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351365332B1524CC0094F42C /* Debug */,
+				351365342B1524CC0094F42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		351365352B1524CC0094F42C /* Build configuration list for PBXNativeTarget "MixologyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351365362B1524CC0094F42C /* Debug */,
+				351365372B1524CC0094F42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 351365032B1524CA0094F42C /* Project object */;
+}
