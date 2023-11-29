@@ -11,65 +11,70 @@ import SwiftUI
 
 struct ContentView: View {
   @ObservedObject var drinkStore: DrinkStore
+  @Environment(NetworkMonitor.self) private var networkMonitor
 
   var body: some View {
-    VStack {
-      NavigationStack {
-        
-        TabView{
-          VStack {
-            HomeScreenView(drinkStore: drinkStore)
-          }
-            .tabItem {
-              Label("Home", systemImage: "wineglass")
-                
+
+    if networkMonitor.isConnected {
+      TabView {
+        NavigationStack {
+          HomeScreenView(drinkStore: drinkStore)
+            .navigationDestination(for: Drink.self) { drink in
+              DrinkDetailView(drink: drink)
+            }
+            .navigationTitle("Mixology")
         }
-            
-          
+        .tabItem {
+          Label("Home", systemImage: "wineglass")
+        }
+
+        NavigationStack {
           BrowseView(drinkStore: drinkStore)
-            .tabItem {
-              Label("Browse", systemImage: "list.dash")
-                .navigationBarTitle("Browse")
+            .navigationDestination(for: Drink.self) { drink in
+              DrinkDetailView(drink: drink)
+            }
+            .navigationTitle("Browse")
         }
-          
-          Text("FavouritesScreen")
-            .tabItem {
-              Label("Favourites", systemImage: "star")
-          
+        .tabItem {
+          Label("Browse", systemImage: "list.dash")
         }
+
+        Text("FavouritesScreen")
+          .tabItem {
+            Label("Favourites", systemImage: "star")
+          }
       }
-        .navigationBarTitle("Mixology")
-
-        //.font(.largeTitle)
-        .navigationDestination(for: Drink.self) { drink in
-          DrinkDetailView(drink: drink)
-            //.first(where: { $0.id == drink.id })!)
-        }
-      }
-      
 
 
-      
       //.searchable(text: <#T##Binding<String>#>)
-      
-      
-    
-    }
-    .task {
-      do {
 
-        try await drinkStore.fetchPopularDrinkAPIData()
-        try await drinkStore.fetchRandomDrinkAPIData()
-        try await drinkStore.fetchAPIData()
-      } catch CustomErrors.invalidAPIURL {
-      } catch CustomErrors.invalidAPIResponse {
-      }  catch CustomErrors.invalidAPIData {
-      } catch {
-        print("unexpected error")
+
+
+
+      .task {
+        do {
+          if networkMonitor.isConnected {
+            try await drinkStore.fetchPopularDrinkAPIData()
+            try await drinkStore.fetchRandomDrinkAPIData()
+            try await drinkStore.fetchAPIData()
+          }
+        } catch CustomErrors.invalidAPIURL {
+        } catch CustomErrors.invalidAPIResponse {
+        }  catch CustomErrors.invalidAPIData {
+        } catch {
+          print("unexpected error")
+
+        }
 
       }
-
+    } else {
+      ContentUnavailableView(
+        "No Internet Connection",
+        systemImage: "wifi.exclamationmark",
+        description: Text("Please check your connection and try again.")
+      )
     }
+
   }
 
 
@@ -79,4 +84,5 @@ struct ContentView: View {
 
 #Preview {
   ContentView(drinkStore: DrinkStore())
+    .environment(NetworkMonitor())
 }

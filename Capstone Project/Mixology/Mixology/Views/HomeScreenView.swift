@@ -11,14 +11,10 @@ struct HomeScreenView: View {
   @ObservedObject var drinkStore: DrinkStore
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
-
       VStack(spacing: 30) {
-
         DrinkCarouselView(drinks: drinkStore.popularDrinkData.drinks, title: "Popular Drinks")
         DrinkCarouselView(drinks: drinkStore.randomDrinkData.drinks, title: "Random")
         //DrinkCarouselView(title: "Popular")
-
-
       }
     }
   }
@@ -26,4 +22,5 @@ struct HomeScreenView: View {
 
 #Preview {
   HomeScreenView(drinkStore: DrinkStore())
+    
 }

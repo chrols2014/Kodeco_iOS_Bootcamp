@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct OnboardingScreenView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  var onBoardingData: [OnboardingItemModel] = onboardingContent
+  var body: some View {
+
+
+    TabView {
+      ForEach(onBoardingData) { item in
+        OnboardingView(onboardingItem: item)
+      }
+
     }
+    .tabViewStyle(.page)
+    //.indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+    .padding(20)
+  }
 }
 
 #Preview {
-    OnboardingScreenView()
+  OnboardingScreenView(onBoardingData: onboardingContent)
 }

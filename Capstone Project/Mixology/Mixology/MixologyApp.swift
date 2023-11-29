@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct MixologyApp: App {
+  @State private var networkMonitor = NetworkMonitor()
+  @AppStorage("isOnboarding") var isOnboarding: Bool = true
+  
   var body: some Scene {
     WindowGroup {
-      ContentView(drinkStore: DrinkStore())
+      if isOnboarding {
+        OnboardingScreenView()
+      } else {
+        ContentView(drinkStore: DrinkStore())
+          .environment(networkMonitor)
+      }
+      
     }
   }
 }

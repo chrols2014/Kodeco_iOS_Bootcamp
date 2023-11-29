@@ -28,7 +28,7 @@ struct Drink: Codable, Identifiable, Hashable {
   let strInstructionsIT: String?
   let strInstructionsZHHANS: String?
   let strInstructionsZHHANT: String?
-  let imageURL: URL?
+  let imageURL: URL
   let ingredient1: String?
   let ingredient2: String?
   let ingredient3: String?
@@ -168,7 +168,7 @@ struct MockData {
                                strInstructionsIT: nil,
                                strInstructionsZHHANS: nil,
                                strInstructionsZHHANT: nil,
-                               imageURL: URL(string: "https://www.thecocktaildb.com/images/media/drink/xnzc541493070211.jpg"),
+                               imageURL: URL(string: "https://www.thecocktaildb.com/images/media/drink/xnzc541493070211.jpg")!,
                                ingredient1: "Amaretto",
                                ingredient2: "Sour mix",
                                ingredient3: nil,

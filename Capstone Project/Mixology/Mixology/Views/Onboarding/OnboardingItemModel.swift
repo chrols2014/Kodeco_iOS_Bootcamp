@@ -6,14 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
-
-struct OnboardingItem: Codable, Identifiable{
-  var id = UUID()
-  var title: String?
-  var content: String?
-  var sfSymbol: String?
-
-
-
+struct OnboardingItemModel: Identifiable {
+  var id: Int
+  var title: String
+  var content: String
+  var sfSymbol: String
+  var gradientColors: [Color]
 }

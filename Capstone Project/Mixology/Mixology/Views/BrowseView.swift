@@ -9,12 +9,13 @@ import SwiftUI
 
 struct BrowseView: View {
   @ObservedObject var drinkStore: DrinkStore
+  
   var body: some View {
    
       //      List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/){ item in
       //        DrinkListCellView(drink: MockData().mockDrink)
       //      }
-      List(drinkStore.loadedDrinkData.drinks) { drink in
+    List(drinkStore.loadedDrinkData.drinks) { drink in
         NavigationLink(value: drink) {
           DrinkListCellView(drink: drink)
         }
@@ -42,7 +43,8 @@ struct BrowseView: View {
 //        DrinkDetailView(drink: drinkStore.loadedDrinkData.drinks
 //          .first(where: { $0.id == drink.id })!)
 //      }
-      .navigationBarTitle("Browse")
+      //.navigationBarTitle("Browse")
+    //UINavigationItem.it
 
   }
 }

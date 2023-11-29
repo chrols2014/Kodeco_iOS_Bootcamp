@@ -10,11 +10,11 @@ import SwiftUI
 struct FetchedImage: View {
 
     let url: URL?
-    @StateObject private var imageLoader = ImageLoader()
+    @StateObject private var imageFetcher = ImageFetcher()
 
     var body: some View {
         VStack {
-            if let uiImage = imageLoader.uiImage {
+            if let uiImage = imageFetcher.fetchedImage {
                 Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFit()
@@ -30,7 +30,7 @@ struct FetchedImage: View {
 
     private func downloadImage() async {
         do {
-            try await imageLoader.fetchImage(url)
+            try await imageFetcher.fetchImage(url)
         } catch {
             print(error)
         }

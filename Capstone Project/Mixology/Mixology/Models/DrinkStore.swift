@@ -18,6 +18,8 @@ class DrinkStore: ObservableObject {
     loadedDrinkData = DrinkModel(drinks: [])
     popularDrinkData = DrinkModel(drinks: [])
     randomDrinkData = DrinkModel(drinks: [])
+//    URLCache.shared.memoryCapacity = 10_000_000 // ~10 MB memory space
+//    URLCache.shared.diskCapacity = 1_000_000_000 // ~1GB disk cache space
   }
   
   func fetchAPIData() async throws {
@@ -25,8 +27,8 @@ class DrinkStore: ObservableObject {
       //isFetchingData = true
     }
     
-//    guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=b") else {
-      guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php") else {
+    guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=b") else {
+      //guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php") else {
 
       // guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/random.php") else {
       throw CustomErrors.invalidAPIURL

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct RemoteImage: View {
+
+    var image : Image?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        image?.resizable() ?? Image("avatar-placeholder").resizable()
     }
 }
 

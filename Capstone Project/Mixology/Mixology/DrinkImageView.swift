@@ -7,29 +7,43 @@
 
 import SwiftUI
 
-class DrinkImageViewModel: ObservableObject {
-
-  @Published var image: UIImage? = nil
-  @Published var isLoading: Bool = false
-
-  private let drink: Drink
-  init(drink: Drink) {
-    getImage()
-  }
-
-  private func getImage() {
-
-  }
-
-}
-
-
 struct DrinkImageView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+  var drink: Drink
+
+  @StateObject private var imageFetcher = ImageFetcher()
+
+  var body: some View {
+    VStack {
+      if let uiImage = imageFetcher.fetchedImage {
+        Image(uiImage: uiImage)
+
+          .resizable()
+        //          .scaledToFit()
+        //          .frame(height: 70)
+        //          .cornerRadius(3.0)
+      } else {
+        VStack {
+          Spacer()
+          ProgressView()
+          Spacer()
+        }
+      }
+    }.onAppear() {
+      Task {
+        do {
+          try await imageFetcher.fetchImage(drink.imageURL)
+        } catch {
+          print("Unexpected Error")
+        }
+      }
     }
+  }
 }
+
+
 
 #Preview {
-    DrinkImageView()
+  DrinkImageView(drink: MockData().mockDrink)
+
 }
