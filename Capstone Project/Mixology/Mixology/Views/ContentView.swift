@@ -16,34 +16,60 @@ struct ContentView: View {
   var body: some View {
 
     if networkMonitor.isConnected {
+    
       TabView {
-        NavigationStack {
-          HomeScreenView(drinkStore: drinkStore)
-            .navigationDestination(for: Drink.self) { drink in
-              DrinkDetailView(drink: drink)
-            }
-            .navigationTitle("Mixology")
-        }
-        .tabItem {
-          Label("Home", systemImage: "wineglass")
-        }
 
-        NavigationStack {
-          BrowseView(drinkStore: drinkStore)
-            .navigationDestination(for: Drink.self) { drink in
-              DrinkDetailView(drink: drink)
-            }
-            .navigationTitle("Browse")
-        }
-        .tabItem {
-          Label("Browse", systemImage: "list.dash")
-        }
+          NavigationStack {
+            HomeScreenView(drinkStore: drinkStore)
+              .navigationDestination(for: Drink.self) { drink in
+                DrinkDetailView(drink: drink)
+              }
+              //.navigationTitle("Mixology")
 
-        Text("FavouritesScreen")
-          .tabItem {
-            Label("Favourites", systemImage: "star")
+              .navigationBarTitleDisplayMode(.inline)
+              .toolbar {
+                ToolbarItem(placement: .principal) {
+                      //Image(systemName: "photo.fill")
+                    Image("MixologyLogo")
+                      .renderingMode(.template)
+                      .resizable()
+                      .aspectRatio(contentMode: .fit)
+                      .frame(height: 100)
+                      //.padding(.top, 20)
+                      .shadow(radius: 2)
+                      .foregroundColor(.pink)
+
+                  }
+              }
+//              .navigationBarTitleDisplayMode(.inline)
+//              .toolbarBackground(
+//
+//                              // 1
+//                              Color.pink,
+//                              // 2
+//                              for: .navigationBar)
+//
           }
-      }
+          .tabItem {
+            Label("Home", systemImage: "wineglass")
+          }
+
+          NavigationStack {
+            BrowseView(drinkStore: drinkStore)
+              .navigationDestination(for: Drink.self) { drink in
+                DrinkDetailView(drink: drink)
+              }
+              .navigationTitle("Browse")
+          }
+          .tabItem {
+            Label("Browse", systemImage: "list.dash")
+          }
+
+          Text("FavouritesScreen")
+            .tabItem {
+              Label("Favourites", systemImage: "star")
+            }
+        }
 
 
       //.searchable(text: <#T##Binding<String>#>)

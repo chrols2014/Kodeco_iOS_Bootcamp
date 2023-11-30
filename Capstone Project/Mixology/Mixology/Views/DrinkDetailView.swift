@@ -37,7 +37,7 @@ struct DrinkDetailView: View {
         Text(drink.drinkName.capitalized)
           .font(.title)
 
-        Text(drink.glass ?? "")
+        Text(drink.glass?.capitalized ?? "")
           .font(.subheadline)
 
 

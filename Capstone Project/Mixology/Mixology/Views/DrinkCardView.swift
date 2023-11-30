@@ -47,12 +47,15 @@ struct DrinkCardView: View {
       
       Spacer()
       Text(drink.drinkName.capitalized)
-
+        .padding(.horizontal, 5)
+        .minimumScaleFactor(0.7)
+        .lineLimit(1)
         .tint(.black)
       Spacer()
     }
     .frame(width: 160, height: 200)
-    .background(.gray)
+    //.background(.gray)
+    .background(.ultraThinMaterial)
     .cornerRadius(5)
   }
 }

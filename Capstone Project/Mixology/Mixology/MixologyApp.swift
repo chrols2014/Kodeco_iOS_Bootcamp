@@ -20,7 +20,9 @@ struct MixologyApp: App {
         ContentView(drinkStore: DrinkStore())
           .environment(networkMonitor)
       }
-      
+        
+
     }
+    
   }
 }
