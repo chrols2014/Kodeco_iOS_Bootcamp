@@ -14,7 +14,7 @@ struct DrinkCarouselView: View {
     VStack {
       HStack {
         Text(title)
-          .font(.title2)
+          .font(.callout)
         Spacer()
       }
       ScrollView(.horizontal, showsIndicators: false) {

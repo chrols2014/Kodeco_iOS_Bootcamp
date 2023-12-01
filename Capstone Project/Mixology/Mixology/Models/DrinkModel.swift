@@ -9,6 +9,8 @@ import Foundation
 
 struct DrinkModel: Codable {
   var drinks: [Drink]
+
+
 }
 
 struct Drink: Codable, Identifiable, Hashable {
@@ -64,6 +66,10 @@ struct Drink: Codable, Identifiable, Hashable {
   let strCreativeCommonsConfirmed: String?
   let dateModified: String?
   
+  var isFavourite: Bool {
+    return true
+  }
+
   var tagsArray: [String] {
     var tempArray: [String] = []
     if let tags = tags {
@@ -89,9 +95,32 @@ struct Drink: Codable, Identifiable, Hashable {
     if let ingredient1 = ingredient1 {
       tempCollection.append((ingredient1, ingredientMeasure1))
     }
+    if let ingredient2 = ingredient2 {
+      tempCollection.append((ingredient2, ingredientMeasure2))
+    }
+    if let ingredient1 = ingredient3 {
+      tempCollection.append((ingredient3, ingredientMeasure3))
+    }
+    if let ingredient1 = ingredient4 {
+      tempCollection.append((ingredient4, ingredientMeasure4))
+    }
+    if let ingredient1 = ingredient5 {
+      tempCollection.append((ingredient5, ingredientMeasure5))
+    }
+    if let ingredient1 = ingredient6 {
+      tempCollection.append((ingredient6, ingredientMeasure6))
+    }
+    if let ingredient1 = ingredient7 {
+      tempCollection.append((ingredient7, ingredientMeasure7))
+    }
+    if let ingredient1 = ingredient8 {
+      tempCollection.append((ingredient8, ingredientMeasure8))
+    }
     return tempCollection
   }
-  
+
+
+
 
   private enum CodingKeys: String, CodingKey {
     case id = "idDrink"

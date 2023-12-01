@@ -11,15 +11,43 @@ struct BrowseView: View {
   @ObservedObject var drinkStore: DrinkStore
   
   var body: some View {
-   
+    DrinkListView(drinkList: $drinkStore.loadedDrinkData.drinks, sectionTitle: "Browse Drinks")
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
+        ToolbarItem(placement: .principal) {
+          logoNavBarView()
+
+        }
+      }
+
       //      List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/){ item in
       //        DrinkListCellView(drink: MockData().mockDrink)
       //      }
-    List(drinkStore.loadedDrinkData.drinks) { drink in
-        NavigationLink(value: drink) {
-          DrinkListCellView(drink: drink)
-        }
-      }
+
+//    VStack(alignment: .leading) {
+//      Text("Favourite Drinks")
+//      .font(.title2)}
+//    List(drinkStore.loadedDrinkData.drinks) { drink in
+//      Section(header: Text("Important tasks")) {
+//        NavigationLink(value: drink) {
+//          DrinkListCellView(drink: drink)
+//        }}
+//      }
+
+    //
+//    List {
+//      Section(header: Text("Browse Drinks").foregroundStyle(.pink)) {
+//        ForEach(drinkStore.loadedDrinkData.drinks) { drink in
+//          NavigationLink(value: drink) {
+//            DrinkListCellView(drink: drink)
+//          }
+//        }
+//
+//      }
+//      .headerProminence(.increased)
+//    }
+
+    //
 //      Button {
 //        Task {
 //          do {

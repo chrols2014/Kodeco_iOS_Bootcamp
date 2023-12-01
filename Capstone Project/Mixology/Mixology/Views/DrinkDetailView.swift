@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct DrinkDetailView: View {
-  
+  @State private var animate = false
+  @ObservedObject var drinkStore: DrinkStore
   var drink: Drink
   //@State var image: UIImage
   let placeHolderImage = Images.placeholder
@@ -33,16 +34,31 @@ struct DrinkDetailView: View {
 
 
 
-      VStack(spacing: 10) {
+      VStack(alignment: .leading, spacing: 10) {
         Text(drink.drinkName.capitalized)
           .font(.title)
+        Button {
+          animate.toggle()
+          //drink.isFavourite.toggle()
+          //drinkStore.makeFavourite(drink: drink)
+          drinkStore.toggleFavourite(drink: drink)
+        } label: {
+          Image(systemName: drinkStore.isFavourite(drink: drink) ? "checkmark.square" : "square")
+            .symbolEffect(.bounce, value: animate)
+            .contentTransition(.symbolEffect(.replace))
+            .foregroundColor(drink.isFavourite ? Color.green : Color.red)
+        }
+
+        .buttonStyle(BorderlessButtonStyle())
 
         Text(drink.glass?.capitalized ?? "")
           .font(.subheadline)
 
 
+      
+
         Text("\(drink.ingredientCollection.first!.0 ?? "")  \(drink.ingredientCollection.first!.1 ?? "") ")
-        //        Text("\(drink.ingredientCollection[1].0 ?? "")  \(drink.ingredientCollection.first!.1 ?? "") ")
+               // Text("\(drink.ingredientCollection[1].0 ?? "")  \(drink.ingredientCollection[1].1 ?? "") ")
         //        Text("\(drink.ingredientCollection.first!.0 ?? "")  \(drink.ingredientCollection.first!.1 ?? "") ")
 
 
@@ -60,7 +76,9 @@ struct DrinkDetailView: View {
       Spacer()
         .navigationBarTitleDisplayMode(.inline)
       //.toolbar(.hidden)
+
     }
+
 
     .task {
       do {
@@ -75,10 +93,13 @@ struct DrinkDetailView: View {
       //image = await NetworkManager.shared.downloadImage(from: url) ?? placeHolderImage
 
     }
+    .onAppear {
+      print("Ingredients: \(drink.ingredientCollection.count)")
+    }
   }
     }
 
 
 #Preview {
-  DrinkDetailView(drink: MockData().mockDrink)
+  DrinkDetailView(drinkStore: DrinkStore(), drink: MockData().mockDrink)
 }
