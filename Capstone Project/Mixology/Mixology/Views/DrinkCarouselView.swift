@@ -24,19 +24,12 @@ struct DrinkCarouselView: View {
             NavigationLink(value: drink) {
               DrinkCardView(drink: drink)
             }
-
-
           }
-
         }
 
       }
     }
     .padding(.leading, 20)
-//    .navigationDestination(for: Drink.self) { drink in
-//      DrinkDetailView(drink: drinks
-//        .first(where: { $0.id == drink.id })!)
-//    }
   }
 }
 

@@ -22,6 +22,8 @@ struct FetchedImage: View {
                            .cornerRadius(3.0)
             } else {
                 ProgressView()
+                .frame(width: 100, height: 100)
+                //.background(.blue)
             }
         }.task {
             await downloadImage()

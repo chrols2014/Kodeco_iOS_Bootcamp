@@ -43,7 +43,7 @@ struct DrinkDetailView: View {
           //drinkStore.makeFavourite(drink: drink)
           drinkStore.toggleFavourite(drink: drink)
         } label: {
-          Image(systemName: drinkStore.isFavourite(drink: drink) ? "checkmark.square" : "square")
+          Image(systemName: drinkStore.isFavourite(drink: drink) ? "star.fill" : "star")
             .symbolEffect(.bounce, value: animate)
             .contentTransition(.symbolEffect(.replace))
             .foregroundColor(drink.isFavourite ? Color.green : Color.red)
@@ -78,6 +78,12 @@ struct DrinkDetailView: View {
       //.toolbar(.hidden)
 
     }
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+      ToolbarItem(placement: .principal) {
+        LogoNavBarItemView()
+      }
+    }
 
 
     .task {
@@ -94,6 +100,7 @@ struct DrinkDetailView: View {
 
     }
     .onAppear {
+      drinkStore.setRecentlyViewed(drink: drink)
       print("Ingredients: \(drink.ingredientCollection.count)")
     }
   }

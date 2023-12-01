@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DrinkListView: View {
- // @ObservedObject var drinkStore: DrinkStore
-  @Binding var drinkList: [Drink]
+  @ObservedObject var drinkStore: DrinkStore
+  var drinkList: [Drink] = []
    var sectionTitle: String
   var body: some View {
   
@@ -31,5 +31,5 @@ struct DrinkListView: View {
 }
 
 #Preview {
-  DrinkListView(drinkList: .constant(DrinkStore().loadedDrinkData.drinks), sectionTitle: "TestTitle")
+  DrinkListView(drinkStore: DrinkStore(), drinkList: [], sectionTitle: "Test")
 }

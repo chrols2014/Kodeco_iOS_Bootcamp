@@ -18,9 +18,13 @@ struct HomeScreenView: View {
        // .ignoresSafeArea()
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: 30) {
+          if drinkStore.recentlyViewedDrinkData.drinks != [] {
+            DrinkCarouselView(drinks: drinkStore.recentlyViewedDrinkData.drinks, title: "Recently Viewed Drinks")
+          }
           DrinkCarouselView(drinks: drinkStore.popularDrinkData.drinks, title: "Popular Drinks")
           DrinkCarouselView(drinks: drinkStore.randomDrinkData.drinks, title: "Random")
-          //DrinkCarouselView(title: "Popular")
+
+       
         }.padding(.top, 30)
       }
 

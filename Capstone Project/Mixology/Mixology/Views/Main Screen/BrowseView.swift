@@ -9,73 +9,35 @@ import SwiftUI
 
 struct BrowseView: View {
   @ObservedObject var drinkStore: DrinkStore
-  
+  @Binding var searchTerm: String
+
+  var filteredDrinks: [Drink] {
+    if searchTerm.isEmpty {
+      return drinkStore.allDrinksData.drinks
+    } else {
+      return drinkStore.allDrinksData.drinks.filter {
+        $0.drinkName.contains(searchTerm)
+      }
+    }
+  }
+
   var body: some View {
-    DrinkListView(drinkList: $drinkStore.loadedDrinkData.drinks, sectionTitle: "Browse Drinks")
+    DrinkListView(drinkStore: drinkStore, drinkList: filteredDrinks,
+                    sectionTitle: "Browse Drinks")
+
+
+      .searchable(text: $drinkStore.searchTerm)
+      .onSubmit(of: .search) {
+      }
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .principal) {
           LogoNavBarItemView()
         }
       }
-
-      //      List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/){ item in
-      //        DrinkListCellView(drink: MockData().mockDrink)
-      //      }
-
-//    VStack(alignment: .leading) {
-//      Text("Favourite Drinks")
-//      .font(.title2)}
-//    List(drinkStore.loadedDrinkData.drinks) { drink in
-//      Section(header: Text("Important tasks")) {
-//        NavigationLink(value: drink) {
-//          DrinkListCellView(drink: drink)
-//        }}
-//      }
-
-    //
-//    List {
-//      Section(header: Text("Browse Drinks").foregroundStyle(.pink)) {
-//        ForEach(drinkStore.loadedDrinkData.drinks) { drink in
-//          NavigationLink(value: drink) {
-//            DrinkListCellView(drink: drink)
-//          }
-//        }
-//
-//      }
-//      .headerProminence(.increased)
-//    }
-
-    //
-//      Button {
-//        Task {
-//          do {
-//            try await drinkStore.fetchAPIData()
-//            print("fetched remote data")
-//            print(drinkStore.loadedDrinkData.drinks.first!.tagsArray.count)
-//          } catch CustomErrors.invalidAPIURL {
-//            print("InvalidAPIURL")
-//          } catch CustomErrors.invalidAPIResponse {
-//            print("Invalid Reponse")
-//          } catch CustomErrors.invalidAPIData {
-//            print("Invalid Data")
-//          } catch {
-//            print("Unexpected Error")
-//          }
-//        }
-//      } label: {
-//        Text("Test")
-//      }
-//      .navigationDestination(for: Drink.self) { drink in
-//        DrinkDetailView(drink: drinkStore.loadedDrinkData.drinks
-//          .first(where: { $0.id == drink.id })!)
-//      }
-      //.navigationBarTitle("Browse")
-    //UINavigationItem.it
-
   }
 }
 
 #Preview {
-  BrowseView(drinkStore: DrinkStore())
+  BrowseView(drinkStore: DrinkStore(), searchTerm: .constant(""))
 }

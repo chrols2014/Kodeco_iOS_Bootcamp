@@ -14,8 +14,20 @@ struct FavouritesScreen: View {
 
   var body: some View {
 
-    DrinkListView(drinkList: $drinkStore.favouriteDrinkData.drinks, sectionTitle: "Favourite Drinks")
-
+    ZStack {
+    if !drinkStore.favouriteDrinkData.drinks.isEmpty {
+      DrinkListView(drinkStore: drinkStore, drinkList: drinkStore.favouriteDrinkData.drinks, sectionTitle: "Favourite Drinks")
+    } else {
+      withAnimation {
+        ContentUnavailableView("No Favourites Yet",
+                               systemImage: "star.slash",
+                               description: Text("Start marking drinks as your favourites to see them here and have them available offline."))
+        .symbolRenderingMode(.monochrome)
+        .foregroundStyle(.pink)
+        .symbolEffect(.pulse)
+      }
+    }
+  }
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .principal) {

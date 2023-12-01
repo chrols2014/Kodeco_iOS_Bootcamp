@@ -13,22 +13,12 @@ struct DrinkListCellView: View {
   
     var body: some View {
       HStack {
-//        AsyncImage(url: drink.imageURL) { image in
-//          image.image?.resizable().scaledToFit()
-//            .frame(height: 70)
-//            .cornerRadius(3.0)
-        //FetchedImage(url: drink.imageURL)
         DrinkImageView(drink: drink)
           .scaledToFit()
-          .frame(height: 60)
+          .frame(width: 60, height: 60)
           .cornerRadius(3.0)
+          .background(.clear)
 
-//        if let image =
-//
-//          .frame(height: 70)
-
-
-        //}
         
         VStack(alignment: .leading, spacing: 8) {
           Text(drink.drinkName)
@@ -39,18 +29,6 @@ struct DrinkListCellView: View {
           Text(drink.glass ?? "")
             .font(.subheadline)
           
-//          HStack {
-//           
-//            ForEach(drink.tagsArray, id: \.self) { tag in
-//              
-//              TagCapsuleView(tag: tag)
-//            }
-           
-            
-//            Text(drink.tags ?? "")
-//              .font(.subheadline)
-            
-          //}
           
           
         }

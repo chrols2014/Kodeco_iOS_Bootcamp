@@ -12,13 +12,12 @@ import SwiftUI
 struct ContentView: View {
   @ObservedObject var drinkStore: DrinkStore
   @Environment(NetworkMonitor.self) private var networkMonitor
+  
 
   var body: some View {
 
     if networkMonitor.isConnected {
-
       TabView {
-
         NavigationStack {
           HomeScreenView(drinkStore: drinkStore)
             .navigationDestination(for: Drink.self) { drink in
@@ -28,13 +27,11 @@ struct ContentView: View {
         .tabItem {
           Label("Home", systemImage: "wineglass")
         }
-
         NavigationStack {
-          BrowseView(drinkStore: drinkStore)
+          BrowseView(drinkStore: drinkStore, searchTerm: $drinkStore.searchTerm)
             .navigationDestination(for: Drink.self) { drink in
               DrinkDetailView(drinkStore: drinkStore, drink: drink)
             }
-            
         }
         .tabItem {
           Label("Browse", systemImage: "list.dash")
@@ -49,38 +46,31 @@ struct ContentView: View {
             Label("Favourites", systemImage: "star")
           }
       }
-
-
-      //.searchable(text: <#T##Binding<String>#>)
-
-
-
-
+      .onAppear {
+        URLCache.shared.memoryCapacity = 1024 * 1024 * 512
+      }
       .task {
+        drinkStore.loadLocalRecentsJSON()
+        drinkStore.loadLocalFavouritesJSON()
         do {
           if networkMonitor.isConnected {
+
             try await drinkStore.fetchPopularDrinkAPIData()
             try await drinkStore.fetchRandomDrinkAPIData()
-            try await drinkStore.fetchAPIData()
+            try await drinkStore.fetchAllDrinks()
 
           }
         } catch CustomErrors.invalidAPIURL {
+          print("Invalid API")
         } catch CustomErrors.invalidAPIResponse {
+          print("Invalid APIResponse")
         }  catch CustomErrors.invalidAPIData {
+          print("Invalid APIData")
         } catch {
           print("unexpected error")
-
         }
-        drinkStore.loadLocalFavouritesJSON()
-
       }
     } else {
-//      ContentUnavailableView(
-//        "No Internet Connection",
-//        systemImage: "wifi.exclamationmark",
-//        description: Text("Please check your connection and try again.")
-//      )
-
       TabView {
         NavigationStack {
         FavouritesScreen(drinkStore: drinkStore)
@@ -96,12 +86,7 @@ struct ContentView: View {
         drinkStore.loadLocalFavouritesJSON()
       }
     }
-
   }
-
-
-
-
 }
 
 #Preview {

@@ -14,7 +14,7 @@ struct LogoNavBarItemView: View {
       .resizable()
       .aspectRatio(contentMode: .fit)
       .frame(height: 100)
-      .shadow(radius: 2)
+      .shadow(color: .pink, radius: 2)
       .foregroundColor(.pink)
   }
 }
