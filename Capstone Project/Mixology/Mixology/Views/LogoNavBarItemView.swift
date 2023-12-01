@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct logoNavBarView: View {
+struct LogoNavBarItemView: View {
   var body: some View {
     Image("MixologyLogo")
       .renderingMode(.template)
@@ -21,5 +21,5 @@ struct logoNavBarView: View {
 
 
 #Preview {
-  logoNavBarView()
+  LogoNavBarItemView()
 }

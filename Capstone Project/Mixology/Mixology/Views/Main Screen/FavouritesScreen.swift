@@ -19,7 +19,7 @@ struct FavouritesScreen: View {
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .principal) {
-          logoNavBarView()
+          LogoNavBarItemView()
         }
         if !networkMonitor.isConnected {
           ToolbarItem(placement: .topBarTrailing) {

@@ -27,7 +27,7 @@ struct HomeScreenView: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       ToolbarItem(placement: .principal) {
-        logoNavBarView()
+        LogoNavBarItemView()
 
       }
     }

@@ -15,8 +15,7 @@ struct BrowseView: View {
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .principal) {
-          logoNavBarView()
-
+          LogoNavBarItemView()
         }
       }
 
