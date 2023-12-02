@@ -27,6 +27,7 @@
 		351365592B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
 		3513655A2B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
 		3513655B2B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
+		3595BB1E2B1ABCB10016F892 /* DrinkStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595BB1D2B1ABCB10016F892 /* DrinkStoreTests.swift */; };
 		35A8B1612B152C11002EBC6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1602B152C11002EBC6D /* ContentView.swift */; };
 		35A8B1632B152EC8002EBC6D /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1622B152EC8002EBC6D /* HomeScreenView.swift */; };
 		35A8B1652B153026002EBC6D /* DrinkCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1642B153026002EBC6D /* DrinkCarouselView.swift */; };
@@ -83,6 +84,7 @@
 		3513653E2B1525030094F42C /* Drinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		3513653F2B1525030094F42C /* TagCapsuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCapsuleView.swift; sourceTree = "<group>"; };
 		351365402B1525030094F42C /* DrinkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkStore.swift; sourceTree = "<group>"; };
+		3595BB1D2B1ABCB10016F892 /* DrinkStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkStoreTests.swift; sourceTree = "<group>"; };
 		35A8B1602B152C11002EBC6D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		35A8B1622B152EC8002EBC6D /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		35A8B1642B153026002EBC6D /* DrinkCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCarouselView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				3513651F2B1524CC0094F42C /* MixologyTests.swift */,
+				3595BB1D2B1ABCB10016F892 /* DrinkStoreTests.swift */,
 			);
 			path = MixologyTests;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				3513655A2B1525040094F42C /* DrinkStore.swift in Sources */,
 				351365542B1525040094F42C /* Drinks.swift in Sources */,
 				351365202B1524CC0094F42C /* MixologyTests.swift in Sources */,
+				3595BB1E2B1ABCB10016F892 /* DrinkStoreTests.swift in Sources */,
 				351365452B1525030094F42C /* DrinkModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

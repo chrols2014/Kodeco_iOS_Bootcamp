@@ -17,11 +17,7 @@ struct DrinkImageView: View {
     VStack {
       if let uiImage = imageFetcher.fetchedImage {
         Image(uiImage: uiImage)
-
           .resizable()
-        //          .scaledToFit()
-        //          .frame(height: 70)
-        //          .cornerRadius(3.0)
       } else {
         VStack {
           Spacer()
@@ -29,7 +25,8 @@ struct DrinkImageView: View {
           Spacer()
         }
       }
-    }.onAppear() {
+    }
+    .onAppear() {
       Task {
         do {
           try await imageFetcher.fetchImage(drink.imageURL)
