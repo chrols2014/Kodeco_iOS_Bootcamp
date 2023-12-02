@@ -10,72 +10,74 @@ import SwiftUI
 struct DrinkDetailView: View {
   @State private var animate = false
   @ObservedObject var drinkStore: DrinkStore
+  @Environment(NetworkMonitor.self) private var networkMonitor
+  @State private var showingAlert = false
   var drink: Drink
-  //@State var image: UIImage
-  let placeHolderImage = Images.placeholder
 
   var body: some View {
 
 
     ScrollView(.vertical, showsIndicators: true) {
-//      AsyncImage(url: drink.imageURL) { image in
-//        image.image?.resizable()
-//          .aspectRatio(contentMode: .fit)
-//          .clipShape(.rect(cornerRadius: 10), style: FillStyle())
-//          .padding()
-//
-//      }
-
-     // Image(uiImage: image)
-      DrinkImageView(drink: drink)
-        .scaledToFit()
-        .frame(height: 250)
-        .cornerRadius(3.0)
+      
+        DrinkImageView(drink: drink)
+          .scaledToFit()
+          .frame(height: 300)
+          .cornerRadius(3.0)
 
 
 
-      VStack(alignment: .leading, spacing: 10) {
+      VStack(alignment: .center, spacing: 10) {
         Text(drink.drinkName.capitalized)
           .font(.title)
+          .foregroundStyle(.accent)
         Button {
           animate.toggle()
-          //drink.isFavourite.toggle()
-          //drinkStore.makeFavourite(drink: drink)
           drinkStore.toggleFavourite(drink: drink)
         } label: {
           Image(systemName: drinkStore.isFavourite(drink: drink) ? "star.fill" : "star")
             .symbolEffect(.bounce, value: animate)
             .contentTransition(.symbolEffect(.replace))
-            .foregroundColor(drink.isFavourite ? Color.green : Color.red)
+            .foregroundStyle(.yellow)
         }
 
         .buttonStyle(BorderlessButtonStyle())
 
         Text(drink.glass?.capitalized ?? "")
           .font(.subheadline)
-
-
-      
-
-        Text("\(drink.ingredientCollection.first!.0 ?? "")  \(drink.ingredientCollection.first!.1 ?? "") ")
-               // Text("\(drink.ingredientCollection[1].0 ?? "")  \(drink.ingredientCollection[1].1 ?? "") ")
-        //        Text("\(drink.ingredientCollection.first!.0 ?? "")  \(drink.ingredientCollection.first!.1 ?? "") ")
-
-
+          .foregroundStyle(.purple)
+Text("Ingredients")
+          .font(.title3)
+          .foregroundStyle(.accent)
         HStack {
-          if !drink.tagsArray.isEmpty {
-            ForEach(drink.tagsArray, id: \.self) { item in
+          VStack(spacing:1) {
+            ForEach(drink.ingredientArray.indices) {
+              Text(self.drink.ingredientArray[$0])
+                .foregroundStyle(.accent)
+            }
+          }
 
-              TagCapsuleView(tag: item)
+          VStack(spacing:1) {
+            ForEach(drink.measurementsArray.indices) {
+              Text(self.drink.measurementsArray[$0])
+                .foregroundStyle(.purple)
             }
           }
         }
+
+
+          Text("Directions")
+          .foregroundStyle(.accent)
+          .font(.title3)
+          .padding(.top, 20)
+
         Text(drink.instructions ?? "No instructions available.")
+          .foregroundStyle(.accent)
+          .padding(.horizontal, 30)
       }
+      .padding(.bottom, 50)
 
       Spacer()
         .navigationBarTitleDisplayMode(.inline)
-      //.toolbar(.hidden)
 
     }
     .navigationBarTitleDisplayMode(.inline)
@@ -83,25 +85,32 @@ struct DrinkDetailView: View {
       ToolbarItem(placement: .principal) {
         LogoNavBarItemView()
       }
-    }
+      if !networkMonitor.isConnected {
+        ToolbarItem(placement: .topBarTrailing) {
 
 
-    .task {
-      do {
+          Image(systemName: "wifi.exclamationmark")
+            .renderingMode(.original)
+            .foregroundStyle(.pink, .pink)
+            .symbolEffect(.bounce.down, options: .speed(0.2).repeat(3), value: animate)
+            .foregroundColor(.pink)
+            .padding(.trailing, 10)
+            .onTapGesture {
+              showingAlert = true
+            }
+            .onAppear {
+              animate = true
+            }
+            .onDisappear {
+              animate = false
+            }
 
-        //image = await NetworkManager.instance.downloadImage(from: drink.imageURL.absoluteString)
-       // image = Images.placeholder!
-      } catch let error {
-        print("unexpected error \(error)")
-
+        }
       }
-
-      //image = await NetworkManager.shared.downloadImage(from: url) ?? placeHolderImage
-
     }
     .onAppear {
       drinkStore.setRecentlyViewed(drink: drink)
-      print("Ingredients: \(drink.ingredientCollection.count)")
+      print("Ingredients: \(drink.ingredientArray.count)")
     }
   }
     }
@@ -109,4 +118,5 @@ struct DrinkDetailView: View {
 
 #Preview {
   DrinkDetailView(drinkStore: DrinkStore(), drink: MockData().mockDrink)
+    .environment(NetworkMonitor())
 }

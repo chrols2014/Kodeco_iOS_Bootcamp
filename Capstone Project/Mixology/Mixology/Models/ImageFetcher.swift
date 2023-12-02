@@ -30,7 +30,7 @@ class ImageFetcher: ObservableObject {
 
         let request = URLRequest(url: url)
 
-        // check in cache
+    
         if let cachedImage = Self.cache.object(forKey: url.absoluteString as NSString) {
             fetchedImage = cachedImage
         } else {
@@ -45,7 +45,7 @@ class ImageFetcher: ObservableObject {
                 throw NetworkError.unsupportedImage
             }
 
-            // store it in the cache
+
             Self.cache.setObject(image, forKey: url.absoluteString as NSString)
             fetchedImage = image
             sImage = Image(uiImage: image)

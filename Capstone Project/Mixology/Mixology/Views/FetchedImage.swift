@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct FetchedImage: View {
-
+  @ObservedObject var drinkStore: DrinkStore
     let url: URL?
     @StateObject private var imageFetcher = ImageFetcher()
 
     var body: some View {
         VStack {
             if let uiImage = imageFetcher.fetchedImage {
+                
                 Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFit()
@@ -23,7 +24,6 @@ struct FetchedImage: View {
             } else {
                 ProgressView()
                 .frame(width: 100, height: 100)
-                //.background(.blue)
             }
         }.task {
             await downloadImage()

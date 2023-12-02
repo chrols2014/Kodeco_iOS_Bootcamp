@@ -53,9 +53,9 @@ struct DrinkCardView: View {
           .minimumScaleFactor(0.7)
           .lineLimit(1)
           .foregroundStyle(.pink)
-          .shadow(radius: 1)
         Text(drink.glass?.capitalized ?? "")
           .font(.caption)
+          .foregroundStyle(.purple.opacity(0.8))
           .padding(.horizontal, 7)
         Spacer()
 

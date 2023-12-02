@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "chr.ols_a_vector_image_of_a_neon_martini_glass_cocktail_with_mi_5119b097-9944-4fde-8eaa-f116cc38e964.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

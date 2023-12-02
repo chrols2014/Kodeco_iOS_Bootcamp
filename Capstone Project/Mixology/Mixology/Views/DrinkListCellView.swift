@@ -17,18 +17,20 @@ struct DrinkListCellView: View {
           .scaledToFit()
           .frame(width: 60, height: 60)
           .cornerRadius(3.0)
-          .background(.clear)
+          .background(.thinMaterial)
 
         
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 4) {
           Text(drink.drinkName)
+            .foregroundStyle(.accent)
             .fontWeight(.semibold)
             .lineLimit(2)
             .minimumScaleFactor(0.5)
           
           Text(drink.glass ?? "")
-            .font(.subheadline)
-          
+            .font(.caption)
+          .foregroundStyle(.purple.opacity(0.8))
+
           
           
         }

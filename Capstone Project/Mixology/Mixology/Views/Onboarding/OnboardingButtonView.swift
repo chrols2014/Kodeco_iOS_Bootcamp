@@ -27,10 +27,10 @@ struct OnboardingButtonView: View {
       .padding(.horizontal, 16)
       .padding(.vertical, 10)
       .background(
-        Capsule().strokeBorder(Color.white, lineWidth: 1.25)
+        Capsule().strokeBorder(.accent, lineWidth: 1.25)
       )
     } //: BUTTON
-    .accentColor(Color.white)
+    .accentColor(.accent)
   }
 }
 

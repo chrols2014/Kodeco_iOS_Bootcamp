@@ -79,7 +79,7 @@ struct ContentView: View {
           }
       }
           .tabItem {
-            Label("Favourites", systemImage: "star")
+            Label("Favourites", systemImage: "star").foregroundStyle(.pink)
           }
       }
       .task {

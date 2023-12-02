@@ -16,23 +16,24 @@ struct OnboardingView: View {
       VStack(spacing: 20) {
         Spacer()
         Image(systemName: onboardingItem.sfSymbol)
-          .symbolRenderingMode(.multicolor)
+          .symbolRenderingMode(.monochrome)
+          .foregroundStyle(.purple)
 
           .symbolEffect(.bounce.down, value: isAnimating)
           .padding(.bottom, 50)
           .font(.system(size: 120, weight: .bold))
           .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 8, x: 6, y: 8)
-         // .scaleEffect(isAnimating ? 1.0 : 0.6)
+
 
 
         Text(onboardingItem.title)
-          .foregroundColor(Color.white)
-          .font(.largeTitle)
+          .foregroundColor(.accent)
+          .font(.title)
           .fontWeight(.heavy)
           .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 2, x: 2, y: 2)
 
         Text(onboardingItem.content)
-          .foregroundColor(Color.white)
+          .foregroundColor(.accent.opacity(0.8))
           .multilineTextAlignment(.center)
           .padding(.horizontal, 16)
           .frame(maxWidth: 480)
@@ -65,5 +66,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-  OnboardingView(onboardingItem: OnboardingItemModel(id: 0, title: "Test Title", content: "Test Content", sfSymbol: "star.fill", gradientColors: [.blue, .cyan]))
+  OnboardingView(onboardingItem: OnboardingItemModel(id: 0, title: "Test Title", content: "Test Content", sfSymbol: "star.fill", gradientColors: [.black, .black]))
 }

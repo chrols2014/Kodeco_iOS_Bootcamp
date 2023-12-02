@@ -28,15 +28,23 @@
 		3513655A2B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
 		3513655B2B1525040094F42C /* DrinkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351365402B1525030094F42C /* DrinkStore.swift */; };
 		3595BB1E2B1ABCB10016F892 /* DrinkStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3595BB1D2B1ABCB10016F892 /* DrinkStoreTests.swift */; };
+		3595BB1F2B1AC8170016F892 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1742B17B507002EBC6D /* NetworkMonitor.swift */; };
+		3595BB202B1AC8180016F892 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1742B17B507002EBC6D /* NetworkMonitor.swift */; };
+		3595BB212B1AC8410016F892 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1892B192D33002EBC6D /* FileManager.swift */; };
+		3595BB222B1AC8420016F892 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1892B192D33002EBC6D /* FileManager.swift */; };
+		3595BB252B1AEBBD0016F892 /* mockDrink.json in Resources */ = {isa = PBXBuildFile; fileRef = 3595BB232B1AEBBD0016F892 /* mockDrink.json */; };
+		3595BB262B1AEBBD0016F892 /* mockDrink.json in Resources */ = {isa = PBXBuildFile; fileRef = 3595BB232B1AEBBD0016F892 /* mockDrink.json */; };
+		3595BB272B1AEBBD0016F892 /* mockDrink.json in Resources */ = {isa = PBXBuildFile; fileRef = 3595BB232B1AEBBD0016F892 /* mockDrink.json */; };
+		3595BB282B1AEBBD0016F892 /* mockFail.json in Resources */ = {isa = PBXBuildFile; fileRef = 3595BB242B1AEBBD0016F892 /* mockFail.json */; };
+		3595BB292B1AEBBD0016F892 /* mockFail.json in Resources */ = {isa = PBXBuildFile; fileRef = 3595BB242B1AEBBD0016F892 /* mockFail.json */; };
+		3595BB2A2B1AEBBD0016F892 /* mockFail.json in Resources */ = {isa = PBXBuildFile; fileRef = 3595BB242B1AEBBD0016F892 /* mockFail.json */; };
 		35A8B1612B152C11002EBC6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1602B152C11002EBC6D /* ContentView.swift */; };
 		35A8B1632B152EC8002EBC6D /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1622B152EC8002EBC6D /* HomeScreenView.swift */; };
 		35A8B1652B153026002EBC6D /* DrinkCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1642B153026002EBC6D /* DrinkCarouselView.swift */; };
 		35A8B1672B16A74F002EBC6D /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1662B16A74F002EBC6D /* ImageFetcher.swift */; };
 		35A8B1692B16A78A002EBC6D /* FetchedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1682B16A78A002EBC6D /* FetchedImage.swift */; };
-		35A8B16B2B16B4F4002EBC6D /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B16A2B16B4F4002EBC6D /* LocalFileManager.swift */; };
 		35A8B16F2B16D01C002EBC6D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B16E2B16D01C002EBC6D /* Constants.swift */; };
 		35A8B1712B16DD43002EBC6D /* DrinkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1702B16DD43002EBC6D /* DrinkImageView.swift */; };
-		35A8B1732B16F8DB002EBC6D /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1722B16F8DA002EBC6D /* RemoteImage.swift */; };
 		35A8B1752B17B507002EBC6D /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1742B17B507002EBC6D /* NetworkMonitor.swift */; };
 		35A8B1792B17C00C002EBC6D /* OnboardingItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B1782B17C00C002EBC6D /* OnboardingItemModel.swift */; };
 		35A8B17C2B17C0F7002EBC6D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8B17B2B17C0F7002EBC6D /* OnboardingView.swift */; };
@@ -85,15 +93,16 @@
 		3513653F2B1525030094F42C /* TagCapsuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCapsuleView.swift; sourceTree = "<group>"; };
 		351365402B1525030094F42C /* DrinkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkStore.swift; sourceTree = "<group>"; };
 		3595BB1D2B1ABCB10016F892 /* DrinkStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkStoreTests.swift; sourceTree = "<group>"; };
+		3595BB232B1AEBBD0016F892 /* mockDrink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockDrink.json; sourceTree = "<group>"; };
+		3595BB242B1AEBBD0016F892 /* mockFail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockFail.json; sourceTree = "<group>"; };
+		3595BB2C2B1AEFC90016F892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		35A8B1602B152C11002EBC6D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		35A8B1622B152EC8002EBC6D /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		35A8B1642B153026002EBC6D /* DrinkCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCarouselView.swift; sourceTree = "<group>"; };
 		35A8B1662B16A74F002EBC6D /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		35A8B1682B16A78A002EBC6D /* FetchedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedImage.swift; sourceTree = "<group>"; };
-		35A8B16A2B16B4F4002EBC6D /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		35A8B16E2B16D01C002EBC6D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		35A8B1702B16DD43002EBC6D /* DrinkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkImageView.swift; sourceTree = "<group>"; };
-		35A8B1722B16F8DA002EBC6D /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		35A8B1742B17B507002EBC6D /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		35A8B1782B17C00C002EBC6D /* OnboardingItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItemModel.swift; sourceTree = "<group>"; };
 		35A8B17B2B17C0F7002EBC6D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -154,6 +163,7 @@
 		3513650D2B1524CA0094F42C /* Mixology */ = {
 			isa = PBXGroup;
 			children = (
+				3595BB2C2B1AEFC90016F892 /* Info.plist */,
 				3513650E2B1524CA0094F42C /* MixologyApp.swift */,
 				35A8B1892B192D33002EBC6D /* FileManager.swift */,
 				35A8B1852B1929F7002EBC6D /* Helpers */,
@@ -161,6 +171,7 @@
 				3513655C2B1525AB0094F42C /* Views */,
 				3513655E2B1525B60094F42C /* Models */,
 				351365122B1524CC0094F42C /* Assets.xcassets */,
+				3595BB2B2B1AEBCA0016F892 /* Resources */,
 				351365142B1524CC0094F42C /* Preview Content */,
 			);
 			path = Mixology;
@@ -204,7 +215,6 @@
 				35A8B1702B16DD43002EBC6D /* DrinkImageView.swift */,
 				351365382B1525030094F42C /* DrinkDetailView.swift */,
 				3513653D2B1525030094F42C /* DrinkListCellView.swift */,
-				35A8B1722B16F8DA002EBC6D /* RemoteImage.swift */,
 				3513653F2B1525030094F42C /* TagCapsuleView.swift */,
 				35A8B1682B16A78A002EBC6D /* FetchedImage.swift */,
 			);
@@ -217,10 +227,18 @@
 				351365392B1525030094F42C /* DrinkModel.swift */,
 				3513653E2B1525030094F42C /* Drinks.swift */,
 				351365402B1525030094F42C /* DrinkStore.swift */,
-				35A8B16A2B16B4F4002EBC6D /* LocalFileManager.swift */,
 				35A8B1662B16A74F002EBC6D /* ImageFetcher.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3595BB2B2B1AEBCA0016F892 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3595BB242B1AEBBD0016F892 /* mockFail.json */,
+				3595BB232B1AEBBD0016F892 /* mockDrink.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		35A8B17A2B17C013002EBC6D /* Onboarding */ = {
@@ -367,8 +385,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3595BB252B1AEBBD0016F892 /* mockDrink.json in Resources */,
 				351365162B1524CC0094F42C /* Preview Assets.xcassets in Resources */,
 				351365132B1524CC0094F42C /* Assets.xcassets in Resources */,
+				3595BB282B1AEBBD0016F892 /* mockFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +396,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3595BB262B1AEBBD0016F892 /* mockDrink.json in Resources */,
+				3595BB292B1AEBBD0016F892 /* mockFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +405,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3595BB272B1AEBBD0016F892 /* mockDrink.json in Resources */,
+				3595BB2A2B1AEBBD0016F892 /* mockFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,8 +441,6 @@
 				35A8B16F2B16D01C002EBC6D /* Constants.swift in Sources */,
 				35A8B1612B152C11002EBC6D /* ContentView.swift in Sources */,
 				35A8B1712B16DD43002EBC6D /* DrinkImageView.swift in Sources */,
-				35A8B16B2B16B4F4002EBC6D /* LocalFileManager.swift in Sources */,
-				35A8B1732B16F8DB002EBC6D /* RemoteImage.swift in Sources */,
 				35A8B17E2B17C27F002EBC6D /* OnboardingScreenView.swift in Sources */,
 				351365502B1525040094F42C /* DrinkListCellView.swift in Sources */,
 				35A8B1652B153026002EBC6D /* DrinkCarouselView.swift in Sources */,
@@ -449,7 +471,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3513655A2B1525040094F42C /* DrinkStore.swift in Sources */,
+				3595BB202B1AC8180016F892 /* NetworkMonitor.swift in Sources */,
 				351365542B1525040094F42C /* Drinks.swift in Sources */,
+				3595BB212B1AC8410016F892 /* FileManager.swift in Sources */,
 				351365202B1524CC0094F42C /* MixologyTests.swift in Sources */,
 				3595BB1E2B1ABCB10016F892 /* DrinkStoreTests.swift in Sources */,
 				351365452B1525030094F42C /* DrinkModel.swift in Sources */,
@@ -461,7 +485,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				351365462B1525030094F42C /* DrinkModel.swift in Sources */,
+				3595BB1F2B1AC8170016F892 /* NetworkMonitor.swift in Sources */,
 				3513652C2B1524CC0094F42C /* MixologyUITestsLaunchTests.swift in Sources */,
+				3595BB222B1AC8420016F892 /* FileManager.swift in Sources */,
 				351365552B1525040094F42C /* Drinks.swift in Sources */,
 				3513655B2B1525040094F42C /* DrinkStore.swift in Sources */,
 				3513652A2B1524CC0094F42C /* MixologyUITests.swift in Sources */,
@@ -614,9 +640,9 @@
 				DEVELOPMENT_TEAM = 2N4H8PRJM5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mixology/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -643,9 +669,9 @@
 				DEVELOPMENT_TEAM = 2N4H8PRJM5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mixology/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

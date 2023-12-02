@@ -22,7 +22,7 @@ struct HomeScreenView: View {
             DrinkCarouselView(drinks: drinkStore.recentlyViewedDrinkData.drinks, title: "Recently Viewed Drinks")
           }
           DrinkCarouselView(drinks: drinkStore.popularDrinkData.drinks, title: "Popular Drinks")
-          DrinkCarouselView(drinks: drinkStore.randomDrinkData.drinks, title: "Random")
+          DrinkCarouselView(drinks: drinkStore.randomDrinkData.drinks, title: "Ten Random Drinks")
 
        
         }.padding(.top, 30)

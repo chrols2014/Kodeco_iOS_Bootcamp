@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 class DrinkStore: ObservableObject {
   let localFavouriteDrinksJSONURL = URL(fileURLWithPath: "favouriteslist",
-                                   relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+                                        relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
   let localRecentDrinksJSONURL = URL(fileURLWithPath: "recentslist",
-                                   relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+                                     relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+
+
 
 
   @Published var popularDrinkData: DrinkModel
@@ -44,7 +47,7 @@ class DrinkStore: ObservableObject {
   // MARK: - Increase Cache Size
   let configuration = URLSessionConfiguration.default
   let cache = URLCache(memoryCapacity: 500_000_000,
-                         diskCapacity: 1_000_000_000)
+                       diskCapacity: 1_000_000_000)
 
   // MARK: - Filtering Search Results
   func filterSearchResults() {
@@ -65,8 +68,8 @@ class DrinkStore: ObservableObject {
 
     print("Recent drinks total: \(recentlyViewedDrinkData.drinks.count)")
     saveRecentsJSON()
-    }
-  
+  }
+
 
 
 
@@ -178,7 +181,7 @@ class DrinkStore: ObservableObject {
     do {
       let recentsData = try encoder.encode(recentlyViewedDrinkData)
       let recentDrinkData = URL(fileURLWithPath: "recentslist",
-                                   relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+                                relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
       try recentsData.write(to: recentDrinkData, options: .atomicWrite)
       print("saved recents to local file")
@@ -206,7 +209,7 @@ class DrinkStore: ObservableObject {
     do {
       let decoder = JSONDecoder()
 
-       let decodedDrinkData = try decoder.decode(DrinkModel.self, from: data)
+      let decodedDrinkData = try decoder.decode(DrinkModel.self, from: data)
 
       return decodedDrinkData
 
@@ -241,41 +244,34 @@ class DrinkStore: ObservableObject {
 
 
   func fetchRandomDrinkAPIData() async throws {
-    await MainActor.run {
-      //isFetchingData = true
-    }
+    let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php")
 
-      let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php")
+    do {
+      try await MainActor.run {
+        randomDrinkData = try decodeURLData(data: data)
 
-      do {
-        try await MainActor.run {
-          randomDrinkData = try decodeURLData(data: data)
-
-        }
-      } catch {
-        throw CustomErrors.invalidAPIData
       }
+    } catch {
+      throw CustomErrors.invalidAPIData
+    }
 
   }
 
   func fetchPopularDrinkAPIData() async throws {
     await MainActor.run {
-      //isFetchingData = true
     }
-      let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
+    let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
 
-      do {
-        try await MainActor.run {
-          popularDrinkData = try decodeURLData(data: data)
-        }
-      } catch {
-        throw CustomErrors.invalidAPIData
+    do {
+      try await MainActor.run {
+        popularDrinkData = try decodeURLData(data: data)
       }
+    } catch {
+      throw CustomErrors.invalidAPIData
+    }
   }
 
 }
-
-
 enum CustomErrors: Error {
   case invalidAPIURL
   case invalidAPIResponse
