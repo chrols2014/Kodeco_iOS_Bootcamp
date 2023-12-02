@@ -110,7 +110,6 @@ Text("Ingredients")
     }
     .onAppear {
       drinkStore.setRecentlyViewed(drink: drink)
-      print("Ingredients: \(drink.ingredientArray.count)")
     }
   }
     }
