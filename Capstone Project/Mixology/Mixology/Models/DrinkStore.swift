@@ -16,7 +16,7 @@ class DrinkStore: ObservableObject {
                                      relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
 
-
+let apiKey = "" // insert api key here.
 
   @Published var popularDrinkData: DrinkModel
   @Published var randomDrinkData: DrinkModel
@@ -66,7 +66,7 @@ class DrinkStore: ObservableObject {
       recentlyViewedDrinkData.drinks.removeLast()
     }
 
-    print("Recent drinks total: \(recentlyViewedDrinkData.drinks.count)")
+
     saveRecentsJSON()
   }
 
@@ -84,7 +84,6 @@ class DrinkStore: ObservableObject {
 
   func toggleFavourite(drink: Drink) {
     if let index = favouriteDrinkData.drinks.firstIndex(where: { $0.id == drink.id }) {
-      print("removing \(favouriteDrinkData.drinks[index].drinkName) from favourites")
       favouriteDrinkData.drinks.remove(at: index)
       saveFavouritesJSON()
     } else {
@@ -105,13 +104,11 @@ class DrinkStore: ObservableObject {
     var workingDirectory: URL
 
     if FileManager.default.fileExists(atPath: localFavouriteDrinksJSONURL.path) {
-      print("API file not in bundle but found in documents directory")
 
       workingDirectory = localFavouriteDrinksJSONURL
       decodeLocalFavouritesJSON(url: workingDirectory)
 
     } else {
-      print("API file not found in either directory")
       showingAPIError = true
     }
   }
@@ -121,7 +118,6 @@ class DrinkStore: ObservableObject {
     do {
       let favouritesData = try Data(contentsOf: url)
       favouriteDrinkData = try decoder.decode(DrinkModel.self, from: favouritesData)
-      print("Loaded favourites from disk")
     } catch let error {
       print(error)
       showingAPIError = true
@@ -133,13 +129,11 @@ class DrinkStore: ObservableObject {
     var workingDirectory: URL
 
     if FileManager.default.fileExists(atPath: localRecentDrinksJSONURL.path) {
-      print("Recents file found in documents directory")
 
       workingDirectory = localRecentDrinksJSONURL
       decodeLocalRecentsJSON(url: workingDirectory)
 
     } else {
-      print("Recents file not found.")
       showingAPIError = true
     }
   }
@@ -149,9 +143,7 @@ class DrinkStore: ObservableObject {
     do {
       let recentsData = try Data(contentsOf: url)
       recentlyViewedDrinkData = try decoder.decode(DrinkModel.self, from: recentsData)
-      print("Loaded favourites from disk")
     } catch let error {
-      print(error)
       showingAPIError = true
     }
 
@@ -168,7 +160,6 @@ class DrinkStore: ObservableObject {
                                    relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
       try favouritesData.write(to: favouriteDrinkData, options: .atomicWrite)
-      print("saved favourites to local file")
     } catch let error {
       print(error)
 
@@ -184,7 +175,7 @@ class DrinkStore: ObservableObject {
                                 relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
       try recentsData.write(to: recentDrinkData, options: .atomicWrite)
-      print("saved recents to local file")
+
     } catch let error {
       print(error)
 
@@ -224,13 +215,12 @@ class DrinkStore: ObservableObject {
     let chars = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","v","w","y","z"]
 
     for char in chars {
-      let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?f=\(char)")
+      let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/\(apiKey)/search.php?f=\(char)")
 
       do {
         try await MainActor.run {
           let tempAllDrinkData = try decodeURLData(data: data)
           allDrinksData.drinks.append(contentsOf: tempAllDrinkData.drinks)
-          print("Fetched \(tempAllDrinkData.drinks.count) results for letter: \(char)")
           allDrinksData.drinks.sorted { drink1, drink2 in
             drink1.drinkName < drink2.drinkName
           }
@@ -244,7 +234,7 @@ class DrinkStore: ObservableObject {
 
 
   func fetchRandomDrinkAPIData() async throws {
-    let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php")
+    let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/\(apiKey)/randomselection.php")
 
     do {
       try await MainActor.run {
@@ -260,7 +250,7 @@ class DrinkStore: ObservableObject {
   func fetchPopularDrinkAPIData() async throws {
     await MainActor.run {
     }
-    let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
+    let data = try await fetchURLData(url: "https://www.thecocktaildb.com/api/json/v2/\(apiKey)/popular.php")
 
     do {
       try await MainActor.run {

@@ -13,38 +13,7 @@ struct DrinkCardView: View {
   var body: some View {
     VStack(alignment: .leading) {
 
-      //      AsyncImage(
-      //                  url: drink.imageURL,
-      //                  transaction: Transaction(animation: .easeInOut)
-      //              ) { phase in
-      //                  switch phase {
-      //                  case .empty:
-      //                    VStack {
-      //                      Spacer()
-      //                      ProgressView()
-      //                      Spacer()
-      //                    }
-      //                  case .success(let image):
-      //                      image
-      //                          .resizable()
-      //                          .transition(.scale(scale: 0.9)) //.scale(scale: 0.1, anchor: .center))
-      //                  case .failure:
-      //                      Image(systemName: "wifi.slash")
-      //                  @unknown default:
-      //                      EmptyView()
-      //                  }
-      //              }
-
       DrinkImageView(drink: drink)
-
-      //      AsyncImage(url: drink.imageURL) { image in
-      //        image.resizable()
-      //
-      //      } placeholder: {
-      //        ProgressView()
-      //      }
-      //      .aspectRatio(contentMode: .fit)
-
 
 
         Spacer()
@@ -61,7 +30,6 @@ struct DrinkCardView: View {
 
     }
     .frame(width: 160, height: 200)
-    //.background(.gray)
     .background(.ultraThinMaterial)
     .cornerRadius(5)
   }

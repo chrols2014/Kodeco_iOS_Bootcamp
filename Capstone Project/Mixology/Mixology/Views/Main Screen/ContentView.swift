@@ -61,13 +61,9 @@ struct ContentView: View {
 
           }
         } catch CustomErrors.invalidAPIURL {
-          print("Invalid API")
         } catch CustomErrors.invalidAPIResponse {
-          print("Invalid APIResponse")
         }  catch CustomErrors.invalidAPIData {
-          print("Invalid APIData")
         } catch {
-          print("unexpected error")
         }
       }
     } else {
